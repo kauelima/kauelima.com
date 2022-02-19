@@ -1,24 +1,23 @@
 import appConfig from '../config.json';
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ReactDOM from 'react-dom'
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import Image from 'next/image'
+import Fab from '@mui/material/Fab';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import profilePic from '../public/kauelima.webp'
+
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import MailIcon from '@mui/icons-material/Mail';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 function Copyright() {
   return (
@@ -36,43 +35,66 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
-export default function Album() {
+export default function kaueLima() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
+      <Head>
+        <title>Kaue Lima</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
         {/* Hero unit */}
         <Box
           sx={{
             bgcolor: `${appConfig.theme.colors['yellow']}`,
-            pt: 8,
-            pb: 6,
+            minHeight: 500,
+            display: 'flex',
+            alignItems: 'center'
           }}
         >
           <Container maxWidth="lg">
-          <Stack direction="row" spacing={2}>
-
-          <Stack direction="column" spacing={2}>
-              <Typography
-                component="h1"
-                variant="h2"
-                align="left"
-                color="text.primary"
-                gutterBottom
-              >
-                Album layout
-              </Typography>
-              <Typography variant="h5" align="left" color="text.secondary" paragraph>
-                Something short and leading about the collection below—its contents,
-                the creator, etc. Make it short and sweet, but not too short so folks
-                don&apos;t simply skip over it entirely. a
-              </Typography>
-            </Stack></Stack>
+          <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={2}>
+            <Stack direction="column" spacing={2}>
+                <Typography
+                  component="h1"
+                  variant="h1"
+                  align="left"
+                  color="text.primary"
+                >
+                  <b>Kaue Lima</b>
+                </Typography>
+                <Stack direction="row" spacing={2}>
+                  <Fab href="https://www.linkedin.com/in/kauelima"  color="dark" aria-label="LinkedIn" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                    <LinkedInIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                  </Fab>
+                  <Fab href="https://www.telegram.me/kauelima" color="dark" aria-label="Telegram" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                    <TelegramIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                  </Fab>
+                  <Fab href="mailto:kaue@kauelima.com" color="dark" aria-label="Email" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                    <MailIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                  </Fab>
+                  <Fab href="https://www.twitter.com/kauelima" color="dark" aria-label="Twitter" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                    <TwitterIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                  </Fab>
+                </Stack>
+                <Typography variant="h5" align="left" color="text.secondary" paragraph>
+                  UX/UI designer with more than 10 years of experience with digital product design on startups and some of the biggest companies in Brazil. 
+                </Typography>
+              </Stack>
+              <Image
+                src={profilePic}
+                alt="Foto do Kaue Lima"
+                layout={'intrinsic'}
+                objectFit={'contain'}
+                height={500}
+             />
+             </Stack>
             </Container>
           </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container maxWidth="lg">
           {/* End hero unit */}
-          
         </Container>
       </main>
       {/* Footer */}
