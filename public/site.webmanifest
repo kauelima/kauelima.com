@@ -1,6 +1,6 @@
 {
-    "name": "Demochat",
-    "short_name": "Demochat",
+    "name": "Kaue Lima",
+    "short_name": "Kaue",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#2b5797",
-    "background_color": "#2b5797",
+    "theme_color": "#efbc49",
+    "background_color": "#efbc49",
     "display": "standalone"
 }
