@@ -12,8 +12,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import profilePic from '../public/kauelima.webp'
+import profilePic from '../public/assets/kauelima.webp'
+import { QuiltedImageList } from '../components/imageList';
 
+// Icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
@@ -94,13 +96,13 @@ export default function kaueLima() {
                 alt="Foto do Kaue Lima"
                 layout={'intrinsic'}
                 objectFit={'contain'}
-                height={500}
              />
              </Stack>
             </Container>
           </Box>
+        {/* End hero unit */}
         <Container maxWidth="lg">
-          {/* End hero unit */}
+        <QuiltedImageList />
         </Container>
       </main>
       {/* Footer */}
