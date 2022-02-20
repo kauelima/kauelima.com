@@ -46,6 +46,7 @@ export default function kaueLima() {
         <title>Kaue Lima</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={'"' + appConfig.miniBio + '"'}/>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -88,7 +89,7 @@ export default function kaueLima() {
                   </Fab>
                 </Stack>
                 <Typography variant="h5" align="left" color="text.secondary" paragraph>
-                  UX/UI designer with more than 10 years of experience with digital product design on startups and some of the biggest companies in Brazil. 
+                {appConfig.miniBio}
                 </Typography>
               </Stack>
               <Image
