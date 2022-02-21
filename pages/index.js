@@ -26,7 +26,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://kauelima.com/">
-        Kaue Lima
+        {appConfig.name}
       </Link>{' '}
       {new Date().getFullYear()}
     </Typography>
@@ -43,7 +43,7 @@ export default function kaueLima() {
       <CssBaseline />
       <main>
       <Head>
-        <title>Kaue Lima</title>
+        <title>{appConfig.name}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={'"' + appConfig.miniBio + '"'}/>
@@ -72,7 +72,7 @@ export default function kaueLima() {
                   align="left"
                   color="text.primary"
                 >
-                  <b>Kaue Lima</b>
+                  <b>{appConfig.name}</b>
                 </Typography>
                 <Stack direction="row" spacing={2}>
                   <Fab href="https://www.linkedin.com/in/kauelima"  color="dark" aria-label="LinkedIn" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
@@ -94,7 +94,7 @@ export default function kaueLima() {
               </Stack>
               <Image
                 src={profilePic}
-                alt="Foto do Kaue Lima"
+                alt={'"' + appConfig.name + '"'}
                 layout={'intrinsic'}
                 objectFit={'contain'}
              />
