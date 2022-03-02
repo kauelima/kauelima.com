@@ -20,19 +20,22 @@ export function QuiltedImageList() {
                 cols={item.cols}
                 alt={item.title}
                 loading="lazy"
+                style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '20px'}}     
               />
               <ImageListItemBar
                 title={item.title}
                 subtitle={item.client}
-                actionIcon={
-                  <IconButton
-                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                    aria-label={`info about ${item.title}`}
-                    href={`${item.slug}`}
-                  >
-                <InfoIcon />
-              </IconButton>
-            }
+                style={{borderRadius: '0 0 20px 20px'}}
+            //     actionIcon={
+            //       <IconButton
+            //         sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+            //         aria-label={`info about ${item.title}`}
+            //         href={`${item.slug}`}
+            //       >
+
+            //     <InfoIcon />
+            //   </IconButton>
+            // }
           />
           </ImageListItem>
         ))}
