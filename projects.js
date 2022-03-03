@@ -1,6 +1,6 @@
 const projectsData = [
     {
-      img: '../assets/projects/fieldy.jpg',
+      img: '../assets/projects/fieldy-redesign.jpg',
       title: 'Redesign Fieldy',
       client: 'Ativy',
       clientLink: 'https://ativy.com/',
