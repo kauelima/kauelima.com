@@ -1,7 +1,7 @@
 const projectsData = [
     {
-      img: '../assets/projects/fieldy-app.webp',
-      title: 'Fieldy',
+      img: '../assets/projects/fieldy.jpg',
+      title: 'Redesign Fieldy',
       client: 'Ativy',
       clientLink: 'https://ativy.com/',
       slug: 'fieldy',
@@ -9,28 +9,28 @@ const projectsData = [
       cols: 2,
     },
     {
-      img: '../assets/projects/restaurante.webp',
+      img: '../assets/projects/restaurante.jpg',
       title: 'App restaurante',
       client: 'Clube da Entrega',
       clientLink: '',
       slug: 'restaurante',
     },
     {
-      img: '../assets/projects/expedicao.webp',
+      img: '../assets/projects/expedicao.jpg',
       title: 'App expedição',
       client: 'Clube da Entrega',
       clientLink: '',
       slug: 'expedicao',
     },
     {
-      img: '../assets/projects/delivery-center.webp',
+      img: '../assets/projects/delivery-center.jpg',
       title: 'Expedição - Delivery Center',
       client: 'Movile',
       clientLink: 'https://www.movile.com.br/',
       slug: 'delivery-center',
     },
     {
-      img: '../assets/projects/aplicativo-entregador.webp',
+      img: '../assets/projects/entregador.jpg',
       title: 'App do entregador',
       client: 'Movile',
       clientLink: 'https://www.movile.com.br/',
