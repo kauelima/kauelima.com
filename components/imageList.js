@@ -1,9 +1,15 @@
 import * as React from 'react';
 import { ImageList, ImageListItem, ImageListItemBar,IconButton } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
 import projectsData from '../projects'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+
 
 export function QuiltedImageList() {
+    const theme = createTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.up('sm'))
+    console.log(useMediaQuery(theme.breakpoints.up('sm')))
     return (
       <ImageList
         variant="quilted"
@@ -12,21 +18,25 @@ export function QuiltedImageList() {
         
       >
         {projectsData.map((item) => (
-          <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1} > 
-              <img
-                src={item.img}
-                title={item.title}
-                rows={item.rows}
-                cols={item.cols}
-                alt={item.title}
-                loading="lazy"
-                style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '20px'}}     
-              />
-              <ImageListItemBar
-                title={item.title}
-                subtitle={item.client}
-                style={{borderRadius: '0 0 20px 20px'}}
-          />
+          <ImageListItem 
+            key={item.img}             
+            cols={isMobile ? item.cols : 3}
+            rows={item.rows || 1} 
+          > 
+            <img
+              rows={item.rows}
+              cols={item.cols}
+              src={item.img}
+              title={item.title}
+              alt={item.title}
+              loading="lazy"
+              style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '20px'}}     
+            />
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.client}
+              style={{borderRadius: '0 0 20px 20px'}}
+            />
           </ImageListItem>
         ))}
       </ImageList>
