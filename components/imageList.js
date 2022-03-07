@@ -8,8 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 export function QuiltedImageList() {
     const theme = createTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.up('sm'))
-    console.log(useMediaQuery(theme.breakpoints.up('sm')))
+    const isMobile = useMediaQuery(theme.breakpoints.up('md'))
     return (
       <ImageList
         variant="quilted"
@@ -21,7 +20,7 @@ export function QuiltedImageList() {
           <ImageListItem 
             key={item.img}             
             cols={isMobile ? item.cols : 3}
-            rows={item.rows || 1} 
+            rows={isMobile ? item.rows : 2}
           > 
             <img
               rows={item.rows}
