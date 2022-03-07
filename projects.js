@@ -1,6 +1,6 @@
 const projectsData = [
     {
-      img: '../assets/projects/fieldy-redesign.jpg',
+      img: '../assets/projects/fieldy.jpg',
       title: 'Redesign Fieldy',
       client: 'Ativy',
       clientLink: 'https://ativy.com/',
@@ -36,6 +36,15 @@ const projectsData = [
       clientLink: 'https://www.movile.com.br/',
       slug: 'aplicativo-entregador',
       cols: 2,
+    },
+    {
+      img: '../assets/projects/conectapay.jpg',
+      title: 'ConectaPay',
+      client: 'Delivery Pay',
+      clientLink: 'https://www.deliverypay.com.br/',
+      slug: 'conectapay',
+      rows: 2,
+      cols: 3,
     },
   ];
 

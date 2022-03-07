@@ -35,7 +35,28 @@ function Copyright() {
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#efbc49',
+    },
+    secondary: {
+      main: '#363739',
+    },
+    background: {
+      default: '#f5f5ef',
+      paper: '#ffffff',
+    },
+  },
+  typography: {
+    fontFamily: 'Fredoka',
+    h1: {
+      fontFamily: 'Fredoka',
+      fontWeight: 600,
+    },
+  },
+});
 
 export default function kaueLima() {
   return (
@@ -53,6 +74,9 @@ export default function kaueLima() {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff"></meta>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
         {/* Hero unit */}
         <Box
@@ -72,7 +96,7 @@ export default function kaueLima() {
                   align="left"
                   color="text.primary"
                 >
-                  <b>{appConfig.name}</b>
+                  {appConfig.name}
                 </Typography>
                 <Stack direction="row" spacing={2}>
                   <Fab href="https://www.linkedin.com/in/kauelima"  color="dark" aria-label="LinkedIn" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >

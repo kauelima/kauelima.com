@@ -26,16 +26,6 @@ export function QuiltedImageList() {
                 title={item.title}
                 subtitle={item.client}
                 style={{borderRadius: '0 0 20px 20px'}}
-            //     actionIcon={
-            //       <IconButton
-            //         sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-            //         aria-label={`info about ${item.title}`}
-            //         href={`${item.slug}`}
-            //       >
-
-            //     <InfoIcon />
-            //   </IconButton>
-            // }
           />
           </ImageListItem>
         ))}
