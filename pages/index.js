@@ -99,16 +99,16 @@ export default function kaueLima() {
                   {appConfig.name}
                 </Typography>
                 <Stack direction="row" spacing={2}>
-                  <Fab href="https://www.linkedin.com/in/kauelima"  color="dark" aria-label="LinkedIn" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                  <Fab href="https://www.linkedin.com/in/kauelima"  color="secondary" aria-label="LinkedIn" target="_blank" >
                     <LinkedInIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
                   </Fab>
-                  <Fab href="https://www.telegram.me/kauelima" color="dark" aria-label="Telegram" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                  <Fab href="https://www.telegram.me/kauelima" color="secondary" aria-label="Telegram" target="_blank" >
                     <TelegramIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
                   </Fab>
-                  <Fab href="mailto:kaue@kauelima.com" color="dark" aria-label="Email" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                  <Fab href="mailto:kaue@kauelima.com" color="secondary" aria-label="Email" target="_blank" >
                     <MailIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
                   </Fab>
-                  <Fab href="https://www.twitter.com/kauelima" color="dark" aria-label="Twitter" target="_blank" sx={{ backgroundColor: `${appConfig.theme.colors['gray1']}` }} >
+                  <Fab href="https://www.twitter.com/kauelima" color="secondary" aria-label="Twitter" target="_blank" >
                     <TwitterIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
                   </Fab>
                 </Stack>
