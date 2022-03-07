@@ -50,9 +50,9 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Fredoka',
+    fontFamily: `'Fredoka', sans-serif`,
     h1: {
-      fontFamily: 'Fredoka',
+      fontFamily: `'Fredoka', sans-serif`,
       fontWeight: 600,
     },
   },
