@@ -66,6 +66,8 @@ export default function kaueLima() {
       <Head>
         <title>{appConfig.name}</title>
         <meta name="description" content={appConfig.miniBio}/>
+        <meta property="og:title" content={appConfig.name} />
+        <meta property="og:url" content="https://kauelima.com/" />
       </Head>
         {/* Hero unit */}
         <Box
