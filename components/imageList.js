@@ -29,12 +29,12 @@ export function QuiltedImageList() {
               title={item.title}
               alt={item.title}
               loading="lazy"
-              style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '20px'}}     
+              style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '30px'}}     
             />
             <ImageListItemBar
               title={item.title}
               subtitle={item.client}
-              style={{borderRadius: '0 0 20px 20px'}}
+              style={{borderRadius: '0 0 30px 30px'}}
             />
           </ImageListItem>
         ))}
