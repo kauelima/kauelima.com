@@ -16,6 +16,8 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <meta property="og:image" content="https://kauelima.com/android-chrome-384x384.png" />
+        <meta property="og:type" content="website" />
       </Head>
       <body>
         <Main />
