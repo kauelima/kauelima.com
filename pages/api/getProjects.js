@@ -5,7 +5,7 @@ const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.e
 const table = base(process.env.AIRTABLE_TABLE_NAME);
 
 
-export default async function (_req, res) {
+export default async function projectData (_req, res) {
     const records = table.select({
         // Selecting the first 10 records in Full Data:
         maxRecords: 10,
