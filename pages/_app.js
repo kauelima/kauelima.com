@@ -1,4 +1,4 @@
-import { Head } from 'next/document'
+import Head from 'next/head'
 import appConfig from '../config.json';
 
 function GlobalStyle() {
@@ -35,9 +35,9 @@ a {
 }
 
 export default function MyApp({ Component, pageProps }) {
-<Head>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
+  <Head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  </Head>
      
   return (
       <>  
