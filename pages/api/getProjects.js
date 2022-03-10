@@ -4,7 +4,7 @@ const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.e
 // Reference a table
 const table = base(process.env.AIRTABLE_TABLE_NAME);
 
-export default async function projectsData (_req, res) {
+export default async function projectsData (req, res) {
     const records = table.select({
     // Selecting the first 10 records in Full Data
     maxRecords: 10,
@@ -16,21 +16,25 @@ export default async function projectsData (_req, res) {
         records.forEach(function(record) {
             console.log('Retrieved', record.get('title'));
         });
-        // Push airtable response to endpoint response
         
-
-        // To get minified records array
+        // Get all records to minify them
         const minifyItems = (records) =>
         records.map((record) => getMinifiedItem(record));
 
-        // to make record meaningful.
+        // Minify the record data that will be returned
         const getMinifiedItem = (record) => {
             return {
                 id: record.id,
                 fields: record.fields,
             };
         };
-        res.json(minifyItems(records));
+
+        // Cache response for 30 seconds and 
+        res.setHeader('Cache-Control', 's-maxage=10 stale-while-revalidate')
+        // Push response to endpoint
+        res.json(
+            minifyItems(records)
+        );
     });
     
 };
