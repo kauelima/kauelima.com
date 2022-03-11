@@ -30,8 +30,9 @@ export default async function projectsData (req, res) {
         };
 
         // Cache response for 30 seconds and 
-        res.setHeader('Cache-Control', 's-maxage=10 stale-while-revalidate')
+        res.setHeader('Cache-Control', 's-maxage=10 stale-while-revalidate');
         // Push response to endpoint
+        res.statusCode = 200;
         res.json(
             minifyItems(records)
         );
