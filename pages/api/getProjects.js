@@ -11,31 +11,32 @@ export default async function projectsData (req, res) {
     view: "Full Data"
 
     }).firstPage(function(err, records) {
-        
-        if (err) { console.error(err); return; }
-        records.forEach(function(record) {
-            console.log('Retrieved', record.get('title'));
-        });
-        
-        // Get all records to minify them
-        const minifyItems = (records) =>
-        records.map((record) => getMinifiedItem(record));
-
-        // Minify the record data that will be returned
-        const getMinifiedItem = (record) => {
-            return {
-                id: record.id,
-                fields: record.fields,
+        try{
+            // Get all records to minify them
+            const minifyItems = (records) =>
+            records.map((record) => getMinifiedItem(record));
+            
+            // Minify the record data that will be returned
+            const getMinifiedItem = (record) => {
+                return {
+                    id: record.id,
+                    fields: record.fields,
+                };
             };
+            
+            // Cache response for 30 seconds and 
+            res.setHeader('Cache-Control', 's-maxage=10 stale-while-revalidate');
+            // Push response to endpoint
+            res.statusCode = 200;
+            res.json(
+                minifyItems(records)
+            );}
+        catch(err){
+             // Push response to endpoint
+             console.error(err);
+             res.statusCode = 500;
+             res.json({msg: 'Something went wrong'});
+        }
+            })
+            
         };
-
-        // Cache response for 30 seconds and 
-        res.setHeader('Cache-Control', 's-maxage=10 stale-while-revalidate');
-        // Push response to endpoint
-        res.statusCode = 200;
-        res.json(
-            minifyItems(records)
-        );
-    });
-    
-};
