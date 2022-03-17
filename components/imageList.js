@@ -1,14 +1,32 @@
 import * as React from 'react';
 import { ImageList, ImageListItem, ImageListItemBar,IconButton } from '@mui/material';
-import projectsData from '../projects'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+export async function getStaticProps() {
+  const pokemons = await fetch('/api/getProjects')
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      throw new Error('Não foi possível carregar os projetos');
+    })
+    .then((resObject) => resObject);
+
+  return {
+    props: {
+      projects,
+    },
+  };
+}
 
 
-export function QuiltedImageList() {
-    const theme = createTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.up('md'))
+export function QuiltedImageList(props) {
+    const theme = createTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.up('md'));
+    const { projects } = props;
+
     return (
       <ImageList
         variant="quilted"
@@ -16,9 +34,9 @@ export function QuiltedImageList() {
         rowHeight={300}
         
       >
-        {projectsData.map((item) => (
+        {projects.map((item) => (
           <ImageListItem 
-            key={item.img}             
+            key={item.title}
             cols={isMobile ? item.cols : 3}
             rows={isMobile ? item.rows : 2}
           > 
