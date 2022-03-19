@@ -1,31 +1,28 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ImageList, ImageListItem, ImageListItemBar,IconButton } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-export async function getStaticProps() {
-  const pokemons = await fetch('/api/getProjects')
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      throw new Error('Não foi possível carregar os projetos');
-    })
-    .then((resObject) => resObject);
-
-  return {
-    props: {
-      projects,
-    },
-  };
-}
 
 
 export function QuiltedImageList(props) {
     const theme = createTheme();
     const isMobile = useMediaQuery(theme.breakpoints.up('md'));
-    const { projects } = props;
+    const [projects, setProjects] = useState([]);
+
+    React.useEffect(() => {
+      fetch('/api/getProjects')
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+  
+        throw new Error('Não foi possível carregar os projetos');
+      })
+      .then((resObject) => {
+        console.log(resObject);
+        setProjects(resObject);
+      });
+    })
 
     return (
       <ImageList
@@ -36,22 +33,22 @@ export function QuiltedImageList(props) {
       >
         {projects.map((item) => (
           <ImageListItem 
-            key={item.title}
-            cols={isMobile ? item.cols : 3}
-            rows={isMobile ? item.rows : 2}
+            key={item.fields.title}
+            cols={isMobile ? item.fields.cols : 3}
+            rows={isMobile ? item.fields.rows : 2}
           > 
             <img
-              rows={item.rows}
-              cols={item.cols}
-              src={item.img}
-              title={item.title}
-              alt={item.title}
+              rows={item.fields.rows}
+              cols={item.fields.cols}
+              src={item.fields.img}
+              title={item.fields.title}
+              alt={item.fields.title}
               loading="lazy"
               style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '30px'}}     
             />
             <ImageListItemBar
-              title={item.title}
-              subtitle={item.client}
+              title={item.fields.title}
+              subtitle={item.fields.client}
               style={{borderRadius: '0 0 30px 30px'}}
             />
           </ImageListItem>
