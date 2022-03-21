@@ -3,7 +3,7 @@ import appConfig from '../config.json';
 
 export default function Document() {
   return (
-    <Html lang={'"' + appConfig.lang + '"'}>
+    <Html lang={appConfig.lang}>
       <Head>
         <meta charSet="utf-8" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
