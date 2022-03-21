@@ -22,7 +22,7 @@ export function QuiltedImageList(props) {
         console.log(resObject);
         setProjects(resObject);
       });
-    })
+    }, []);
 
     return (
       <ImageList
