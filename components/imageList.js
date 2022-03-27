@@ -32,7 +32,7 @@ export function QuiltedImageList(props) {
         
       >
         {projects.map((item) => (
-          <Link href={"/projeto/" + item.id}>
+          <Link href={"/projeto/" + item.id} key={item.fields.title} passHref>
             <ImageListItem 
               key={item.fields.title}
               cols={isMobile ? item.fields.cols : 3}
