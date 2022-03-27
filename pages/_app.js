@@ -3,6 +3,7 @@ import appConfig from '../config.json';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
+
 function GlobalStyle() {
   return (
     <style global jsx>{`

@@ -2,34 +2,16 @@ import appConfig from '../config.json';
 import Head from 'next/head'
 import * as React from 'react';
 import Image from 'next/image'
-import Fab from '@mui/material/Fab';
-import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Fab, CssBaseline, Stack, Box, Typography, Container, Link } from '@mui/material';
 import profilePic from '../public/assets/kauelima.webp'
 import { QuiltedImageList } from '../components/imageList';
+import { Copyright } from '../components/copyright';
 
 // Icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
 import TwitterIcon from '@mui/icons-material/Twitter';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://kauelima.com/">
-        {appConfig.name}
-      </Link>{' '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
