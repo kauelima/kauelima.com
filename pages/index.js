@@ -1,7 +1,5 @@
 import appConfig from '../config.json';
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import ReactDOM from 'react-dom'
 import * as React from 'react';
 import Image from 'next/image'
 import Fab from '@mui/material/Fab';
@@ -35,33 +33,9 @@ function Copyright() {
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#efbc49',
-    },
-    secondary: {
-      main: '#363739',
-    },
-    background: {
-      default: '#f5f5ef',
-      paper: '#ffffff',
-    },
-  },
-  typography: {
-    fontFamily: `'Fredoka', sans-serif`,
-    h1: {
-      fontFamily: `'Fredoka', sans-serif`,
-      fontWeight: 600,
-    },
-  },
-});
-
 export default function kaueLima() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
       <main>
       <Head>
         <title>{appConfig.name}</title>
@@ -126,6 +100,6 @@ export default function kaueLima() {
         <Copyright />
       </Box>
       {/* End footer */}
-    </ThemeProvider>
+    </>
   );
 }

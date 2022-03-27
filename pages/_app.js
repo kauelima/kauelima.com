@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import appConfig from '../config.json';
+import { createTheme,ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function GlobalStyle() {
   return (
@@ -35,14 +37,41 @@ a {
 }
 
 export default function MyApp({ Component, pageProps }) {
-  <Head>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-  </Head>
+
+  const theme = createTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#efbc49',
+      },
+      secondary: {
+        main: '#363739',
+      },
+      background: {
+        default: '#f5f5ef',
+        paper: '#ffffff',
+      },
+    },
+    typography: {
+      fontFamily: `'Fredoka', sans-serif`,
+      h1: {
+        fontFamily: `'Fredoka', sans-serif`,
+        fontWeight: 600,
+      },
+    },
+  });
      
   return (
       <>  
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
           <Component {...pageProps} />
-          <GlobalStyle />
+        </ThemeProvider>
+        <GlobalStyle />
       </>
   );
 }
