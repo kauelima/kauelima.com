@@ -78,7 +78,7 @@ export default function Project({ project }) {
           ))}
         </Stack>
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            Projeto desenvolvido para <a href={project.clientLink} target="_blank" style={{textDecoration: 'underline'}}>{project.client}</a>
+            Projeto desenvolvido para <a href={project.clientLink} target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>{project.client}</a>
           </Typography>
           
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
@@ -136,6 +136,7 @@ export default function Project({ project }) {
               src={img.url}
               height={400}
               width={800}
+              key={img.id}
             />
           ))}
           </Box>
@@ -174,6 +175,7 @@ export default function Project({ project }) {
               src={img.url}
               height={400}
               width={800}
+              key={img.id}
             />
           ))}
           </Box>
@@ -212,6 +214,7 @@ export default function Project({ project }) {
               src={img.url}
               height={400}
               width={800}
+              key={img.id}
             />
           ))}
           </Box>
@@ -250,6 +253,7 @@ export default function Project({ project }) {
               src={img.url}
               height={400}
               width={800}
+              key={img.id}
             />
           ))}
           </Box>
