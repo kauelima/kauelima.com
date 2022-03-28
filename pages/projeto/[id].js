@@ -28,23 +28,23 @@ export default function Project({ project }) {
       <Box
         sx={{
           bgcolor: `${project.color}`,
-          minHeight: 400,
+          minHeight: 300,
           display: 'flex',
           alignItems: 'center'
         }}
       >
         <Container maxWidth="lg">
+          <Typography
+            component="h1"
+            variant="h1"
+            align="center"
+            color="text.primary"
+          >
+            {project.title}
+          </Typography>
         </Container>
       </Box>
       <Container maxWidth="lg">
-      <Typography
-        component="h1"
-        variant="h4"
-        align="left"
-        color="text.primary"
-      >
-        {project.title}
-      </Typography>
 
       <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
         {project.description} 
@@ -53,7 +53,7 @@ export default function Project({ project }) {
       </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: `${appConfig.theme.colors['yellow']}`, p: 6 }} component="footer">
+      <Box sx={{ bgcolor: `primary.main`, p: 6 }} component="footer">
         <Copyright />
       </Box>
       {/* End footer */}
