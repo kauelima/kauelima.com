@@ -137,6 +137,7 @@ export default function Project({ project }) {
               height={400}
               width={800}
               key={img.id}
+              alt={project.section1Title}
             />
           ))}
           </Box>
@@ -176,6 +177,7 @@ export default function Project({ project }) {
               height={400}
               width={800}
               key={img.id}
+              alt={project.section2Title}
             />
           ))}
           </Box>
@@ -215,6 +217,7 @@ export default function Project({ project }) {
               height={400}
               width={800}
               key={img.id}
+              alt={project.section3Title}
             />
           ))}
           </Box>
@@ -254,6 +257,7 @@ export default function Project({ project }) {
               height={400}
               width={800}
               key={img.id}
+              alt={project.section4Title}
             />
           ))}
           </Box>
