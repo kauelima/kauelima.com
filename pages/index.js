@@ -2,7 +2,7 @@ import appConfig from '../config.json';
 import Head from 'next/head'
 import * as React from 'react';
 import Image from 'next/image'
-import { Fab, CssBaseline, Stack, Box, Typography, Container, Link } from '@mui/material';
+import { Fab, Stack, Box, Typography, Container } from '@mui/material';
 import profilePic from '../public/assets/kauelima.webp'
 import { QuiltedImageList } from '../components/imageList';
 import { Copyright } from '../components/copyright';
@@ -28,12 +28,13 @@ export default function kaueLima() {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: `${appConfig.theme.colors['yellow']}`,
+            bgcolor: `primary.main`,
             minHeight: 500,
             display: 'flex',
             alignItems: 'center'
           }}
         >
+          
           <Container maxWidth="lg">
           <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={2}>
             <Stack direction="column" spacing={2}>
@@ -47,16 +48,16 @@ export default function kaueLima() {
                 </Typography>
                 <Stack direction="row" spacing={2}>
                   <Fab href="https://www.linkedin.com/in/kauelima"  color="secondary" aria-label="LinkedIn" target="_blank" >
-                    <LinkedInIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <LinkedInIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="https://www.telegram.me/kauelima" color="secondary" aria-label="Telegram" target="_blank" >
-                    <TelegramIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <TelegramIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="mailto:kaue@kauelima.com" color="secondary" aria-label="Email" target="_blank" >
-                    <MailIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <MailIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="https://www.twitter.com/kauelima" color="secondary" aria-label="Twitter" target="_blank" >
-                    <TwitterIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <TwitterIcon sx={{ color: `primary.main` }} />
                   </Fab>
                 </Stack>
                 <Typography variant="h5" align="left" color="text.secondary" paragraph>
@@ -78,7 +79,7 @@ export default function kaueLima() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: `${appConfig.theme.colors['yellow']}`, p: 6 }} component="footer">
+      <Box sx={{ bgcolor: `primary.main`, p: 6 }} component="footer">
         <Copyright />
       </Box>
       {/* End footer */}
