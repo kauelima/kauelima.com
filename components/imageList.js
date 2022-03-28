@@ -32,24 +32,24 @@ export function QuiltedImageList(props) {
         
       >
         {projects.map((item) => (
-          <Link href={"/projeto/" + item.id} key={item.fields.title} passHref>
+          <Link href={"/projeto/" + item.id} key={item.title} passHref>
             <ImageListItem 
-              key={item.fields.title}
-              cols={isMobile ? item.fields.cols : 3}
-              rows={isMobile ? item.fields.rows : 2}
+              key={item.title}
+              cols={isMobile ? item.cols : 3}
+              rows={isMobile ? item.rows : 2}
             > 
               <img
-                rows={item.fields.rows}
-                cols={item.fields.cols}
-                src={item.fields.img}
-                title={item.fields.title}
-                alt={item.fields.title}
+                rows={item.rows}
+                cols={item.cols}
+                src={item.img}
+                title={item.title}
+                alt={item.title}
                 loading="lazy"
                 style={{boxShadow: '0px 3px 6px #00000029',borderRadius: '30px', cursor: 'pointer'}}     
               />
               <ImageListItemBar
-                title={item.fields.title}
-                subtitle={item.fields.client}
+                title={item.title}
+                subtitle={item.client}
                 style={{borderRadius: '0 0 30px 30px'}}
               />
             </ImageListItem>

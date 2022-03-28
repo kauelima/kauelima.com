@@ -20,7 +20,11 @@ export default async function projectsData (req, res) {
             const getMinifiedItem = (record) => {
                 return {
                     id: record.id,
-                    fields: record.fields,
+                    cols: record.fields.cols,
+                    rows: record.fields.rows,
+                    img: record.fields.img,
+                    title: record.fields.title,
+                    client: record.fields.client,
                 };
             };
             
