@@ -1,9 +1,6 @@
 import React from 'react';
 import { AppBar, Typography, Toolbar, Box, Container, Stack } from '@mui/material';
-import appConfig from '../../config.json';
 import { Copyright } from '../../components/copyright';
-import { useRouter } from 'next/router'
-import { minHeight } from '@mui/system';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -26,7 +23,7 @@ export default function Project({ project }) {
             component="a"
           >
             <Link href="../" color="secondary" underline="none">
-              Kaue Lima
+                Kaue Lima
             </Link>
           </Typography>
         </Toolbar>
@@ -68,7 +65,7 @@ export default function Project({ project }) {
         <Stack direction='row'>
           {tagList.map((tag, i) => (
           <>
-            <Typography component="span" variant="h6" align="left" color="text.secondary">
+            <Typography component="span" variant="h6" align="left" color="text.secondary" noWrap>
               {tag}
               { tagList.length - 1 === i ?
               null : 
@@ -100,6 +97,7 @@ export default function Project({ project }) {
               src={project.img}
               height={400}
               width={400}
+              alt={project.title}
               />
           </Box>
         </Stack>
