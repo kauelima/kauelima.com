@@ -63,16 +63,16 @@ export default function Project({ project }) {
         {/* Project base */}
         <Stack>
         <Stack direction='row'>
+        <Typography component="span" variant="h6" align="left" color="text.secondary" noWrap>
           {tagList.map((tag, i) => (
-          <>
-            <Typography component="span" variant="h6" align="left" color="text.secondary" noWrap>
-              {tag}
-              { tagList.length - 1 === i ?
-              null : 
-              '\u00A0' + '•' + '\u00A0'}
-            </Typography>
-          </>
+            <>
+            {tag}
+            { tagList.length - 1 === i ?
+            null : 
+            '\u00A0' + '•' + '\u00A0'}
+            </>
           ))}
+          </Typography>
         </Stack>
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
             Projeto desenvolvido para <a href={project.clientLink} target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>{project.client}</a>
