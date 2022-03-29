@@ -1,13 +1,6 @@
 {
     "name": "Kaue Lima",
     "miniBio": "Designer de produtos digitais de Campinas - SP com mais de 10 anos de experiência trabalhando em UX e UI. Eu crio experiências digitais marcantes através de aplicações web e mobile",
-    "lang":"pt-br",
-    "theme": {
-      "colors": {
-        "yellow": "#efbc49",
-        "bgColor": "#f5f5ef",
-        "gray1": "#363739"
-      }
-    }
+    "lang":"pt-br"
   }
   

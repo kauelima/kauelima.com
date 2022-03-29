@@ -1,19 +1,11 @@
 import appConfig from '../config.json';
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import ReactDOM from 'react-dom'
 import * as React from 'react';
 import Image from 'next/image'
-import Fab from '@mui/material/Fab';
-import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Fab, Stack, Box, Typography, Container } from '@mui/material';
 import profilePic from '../public/assets/kauelima.webp'
 import { QuiltedImageList } from '../components/imageList';
+import { Copyright } from '../components/copyright';
 
 // Icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -21,47 +13,11 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://kauelima.com/">
-        {appConfig.name}
-      </Link>{' '}
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
-
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#efbc49',
-    },
-    secondary: {
-      main: '#363739',
-    },
-    background: {
-      default: '#f5f5ef',
-      paper: '#ffffff',
-    },
-  },
-  typography: {
-    fontFamily: `'Fredoka', sans-serif`,
-    h1: {
-      fontFamily: `'Fredoka', sans-serif`,
-      fontWeight: 600,
-    },
-  },
-});
 
 export default function kaueLima() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
       <main>
       <Head>
         <title>{appConfig.name}</title>
@@ -72,12 +28,13 @@ export default function kaueLima() {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: `${appConfig.theme.colors['yellow']}`,
+            bgcolor: `primary.main`,
             minHeight: 500,
             display: 'flex',
             alignItems: 'center'
           }}
         >
+          
           <Container maxWidth="lg">
           <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={2}>
             <Stack direction="column" spacing={2}>
@@ -91,16 +48,16 @@ export default function kaueLima() {
                 </Typography>
                 <Stack direction="row" spacing={2}>
                   <Fab href="https://www.linkedin.com/in/kauelima"  color="secondary" aria-label="LinkedIn" target="_blank" >
-                    <LinkedInIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <LinkedInIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="https://www.telegram.me/kauelima" color="secondary" aria-label="Telegram" target="_blank" >
-                    <TelegramIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <TelegramIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="mailto:kaue@kauelima.com" color="secondary" aria-label="Email" target="_blank" >
-                    <MailIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <MailIcon sx={{ color: `primary.main` }} />
                   </Fab>
                   <Fab href="https://www.twitter.com/kauelima" color="secondary" aria-label="Twitter" target="_blank" >
-                    <TwitterIcon sx={{ color: `${appConfig.theme.colors['yellow']}` }} />
+                    <TwitterIcon sx={{ color: `primary.main` }} />
                   </Fab>
                 </Stack>
                 <Typography variant="h5" align="left" color="text.secondary" paragraph>
@@ -122,10 +79,10 @@ export default function kaueLima() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: `${appConfig.theme.colors['yellow']}`, p: 6 }} component="footer">
+      <Box sx={{ bgcolor: `primary.main`, p: 6 }} component="footer">
         <Copyright />
       </Box>
       {/* End footer */}
-    </ThemeProvider>
+    </>
   );
 }
