@@ -16,7 +16,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default function kaueLima() {
+export default function Page() {
   const router = useRouter();
   const { locale } = router;
 
