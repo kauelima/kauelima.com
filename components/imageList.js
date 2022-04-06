@@ -18,7 +18,6 @@ export function QuiltedImageList(props) {
         throw new Error('Não foi possível carregar os projetos');
       })
       .then((resObject) => {
-        console.log(resObject);
         setProjects(resObject);
       });
     }, []);
@@ -32,7 +31,7 @@ export function QuiltedImageList(props) {
         
       >
         {projects.map((item) => (
-          <Link href={"/projeto/" + item.id} key={item.title} passHref>
+          <Link href={"/proj/" + item.id} key={item.title} passHref>
             <ImageListItem 
               key={item.title}
               cols={isMobile ? item.cols : 3}

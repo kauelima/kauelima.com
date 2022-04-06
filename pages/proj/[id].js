@@ -1,15 +1,31 @@
 import React from 'react';
-import { AppBar, Typography, Toolbar, Box, Container, Stack } from '@mui/material';
+import { AppBar, Typography, Toolbar, Box, Container, Stack, IconButton } from '@mui/material';
 import { Copyright } from '../../components/copyright';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChevronLeft } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 
 export default function Project({ project }) {
-  const tagList = project.tags
+  const router = useRouter();
+  const { locale } = router;
+
   const imgSection1 = project.section1Image
   const imgSection2 = project.section2Image
   const imgSection3 = project.section3Image
   const imgSection4 = project.section4Image
+  
+  const tagList = locale === 'en' ?  project.tags_en :  project.tags_ptBR;
+  const description = locale === 'en' ?  project.description_en :  project.description_ptBR;
+  const section1Title = locale === 'en' ?  project.section1Title_en :  project.section1Title_ptBR;
+  const section2Title = locale === 'en' ?  project.section2Title_en :  project.section2Title_ptBR;
+  const section3Title = locale === 'en' ?  project.section3Title_en :  project.section3Title_ptBR;
+  const section4Title = locale === 'en' ?  project.section4Title_en :  project.section4Title_ptBR;
+  const section1Text = locale === 'en' ?  project.section1Text_en :  project.section1Text_ptBR;
+  const section2Text = locale === 'en' ?  project.section2Text_en :  project.section2Text_ptBR;
+  const section3Text = locale === 'en' ?  project.section3Text_en :  project.section3Text_ptBR;
+  const section4Text = locale === 'en' ?  project.section4Text_en :  project.section4Text_ptBR;
+  const developedFor = locale === 'en' ?  "Project developed for" :  "Projeto desenvolvido para";
  
   return (
     <>
@@ -17,15 +33,25 @@ export default function Project({ project }) {
       <AppBar position="sticky">
       <Container maxWidth="lg">
         <Toolbar variant="regular">
-          <Typography 
-            variant="h5"
-            noWrap
-            component="a"
-          >
-            <Link href="../" color="secondary" underline="none">
-                Kaue Lima
-            </Link>
-          </Typography>
+          <Stack 
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}>
+            <IconButton href="../" aria-label="Back">
+              <ChevronLeft />
+            </IconButton>
+            <Image alt="Kaue Lima" src="/assets/kauelima.webp" width={64} height={64} objectFit="contain" objectPosition="left bottom"/>
+            <Typography 
+              variant="h5"
+              noWrap
+              component="a"
+            >
+              <Link href="../" color="secondary" underline="none">
+                  Kaue Lima
+              </Link>
+            </Typography>
+          </Stack>
         </Toolbar>
         </Container>
       </AppBar>
@@ -75,11 +101,11 @@ export default function Project({ project }) {
           </Typography>
         </Stack>
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            Projeto desenvolvido para <a href={project.clientLink} target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>{project.client}</a>
+            {developedFor} <a href={project.clientLink} target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>{project.client}</a>
           </Typography>
           
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {project.description} 
+            {description} 
             <br />
           </Typography>
           
@@ -105,15 +131,15 @@ export default function Project({ project }) {
 
         {/* Section 1 */}
         <Stack>
-        {project.section1Title ? 
+        {section1Title ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
-            {project.section1Title} 
+            {section1Title} 
           </Typography>
           : null}
 
-          {project.section1Text ?
+          {section1Text ?
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {project.section1Text} 
+            {section1Text + "-" + locale} 
             <br />
           </Typography>
           : null}
@@ -129,15 +155,13 @@ export default function Project({ project }) {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          {imgSection1.map((img) => (
-            <Image
-              src={img.url}
-              height={400}
-              width={800}
-              key={img.id}
-              alt={project.section1Title}
-            />
-          ))}
+          <Image
+            src={project.section1Image} 
+            height={400}
+            width={800}
+            key={section1Title}
+            alt={section1Title}
+          />
           </Box>
           : null}
         </Stack>
@@ -145,15 +169,15 @@ export default function Project({ project }) {
 
         {/* Section 2 */}
         <Stack>
-        {project.section2Title ? 
+        {section2Title ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
-            {project.section2Title} 
+            {section2Title} 
           </Typography>
           : null}
 
-          {project.section2Text ?
+          {section2Text ?
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {project.section2Text} 
+            {section2Text} 
             <br />
           </Typography>
           : null}
@@ -169,15 +193,13 @@ export default function Project({ project }) {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          {imgSection2.map((img) => (
-            <Image
-              src={img.url}
-              height={400}
-              width={800}
-              key={img.id}
-              alt={project.section2Title}
-            />
-          ))}
+          <Image
+            src={project.section2Image}
+            height={400}
+            width={800}
+            key={section2Title}
+            alt={section2Title}
+          />
           </Box>
           : null}
         </Stack>
@@ -185,15 +207,15 @@ export default function Project({ project }) {
 
         {/* Section 3 */}
         <Stack>
-        {project.section3Title ? 
+        {section3Title ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
-            {project.section3Title} 
+            {section3Title} 
           </Typography>
           : null}
 
-          {project.section3Text ?
+          {section3Text ?
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {project.section3Text} 
+            {section3Text} 
             <br />
           </Typography>
           : null}
@@ -209,15 +231,13 @@ export default function Project({ project }) {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          {imgSection3.map((img) => (
             <Image
-              src={img.url}
+              src={project.section3Image}
               height={400}
               width={800}
-              key={img.id}
-              alt={project.section3Title}
+              key={section3Title}
+              alt={section3Title}
             />
-          ))}
           </Box>
           : null}
         </Stack>
@@ -225,15 +245,15 @@ export default function Project({ project }) {
 
         {/* Section 4 */}
         <Stack>
-        {project.section4Title ? 
+        {section4Title ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
-            {project.section4Title} 
+            {section4Title} 
           </Typography>
           : null}
 
-          {project.section4Text ?
+          {section4Text ?
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {project.section4Text} 
+            {section4Text} 
             <br />
           </Typography>
           : null}
@@ -249,15 +269,13 @@ export default function Project({ project }) {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          {imgSection4.map((img) => (
             <Image
-              src={img.url}
+              src={project.section4Image}
               height={400}
               width={800}
-              key={img.id}
-              alt={project.section4Title}
+              key={section4Title}
+              alt={section4Title}
             />
-          ))}
           </Box>
           : null}
         </Stack>
@@ -304,36 +322,84 @@ return {
         id: 'recCsBkIWSI0zs9IT',
         slug: 'fieldy',
         },
+        locale: 'en',
     },
     {
         params: {
         id: 'reclx9Q3qbD4JtRYn',
         slug: 'expedicao',
         },
+        locale: 'en',
     },
     {
         params: {
         id: 'recIAXJPNRTMsba9D',
         slug: 'restaurante',
         },
+        locale: 'en',
     },
     {
         params: {
         id: 'recorqorfNBVU3g7H',
         slug: 'delivery-center',
         },
+        locale: 'en',
     },
     {
         params: {
         id: 'reccSLlW396ONBx3m',
         slug: 'entregador',
         },
+        locale: 'en',
     },
     {
         params: {
         id: 'recoEn64A542p6N5n',
         slug: 'conectapay',
         },
+        locale: 'en',
+    },
+    {
+        params: {
+        id: 'recCsBkIWSI0zs9IT',
+        slug: 'fieldy',
+        },
+        locale: 'pt-BR',
+    },
+    {
+        params: {
+        id: 'reclx9Q3qbD4JtRYn',
+        slug: 'expedicao',
+        },
+        locale: 'pt-BR',
+    },
+    {
+        params: {
+        id: 'recIAXJPNRTMsba9D',
+        slug: 'restaurante',
+        },
+        locale: 'pt-BR',
+    },
+    {
+        params: {
+        id: 'recorqorfNBVU3g7H',
+        slug: 'delivery-center',
+        },
+        locale: 'pt-BR',
+    },
+    {
+        params: {
+        id: 'reccSLlW396ONBx3m',
+        slug: 'entregador',
+        },
+        locale: 'pt-BR',
+    },
+    {
+        params: {
+        id: 'recoEn64A542p6N5n',
+        slug: 'conectapay',
+        },
+        locale: 'pt-BR',
     },
     ],
     fallback: false,

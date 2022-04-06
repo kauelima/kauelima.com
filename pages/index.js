@@ -6,6 +6,7 @@ import { Fab, Stack, Box, Typography, Container } from '@mui/material';
 import profilePic from '../public/assets/kauelima.webp'
 import { QuiltedImageList } from '../components/imageList';
 import { Copyright } from '../components/copyright';
+import { useRouter } from 'next/router';
 
 // Icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -16,12 +17,17 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function kaueLima() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const miniBio = locale === 'en' ?  appConfig.miniBio_en : appConfig.miniBio_ptBR;
+
   return (
     <>
       <main>
       <Head>
         <title>{appConfig.name}</title>
-        <meta name="description" content={appConfig.miniBio}/>
+        <meta name="description" content={miniBio}/>
         <meta property="og:title" content={appConfig.name} />
         <meta property="og:url" content="https://kauelima.com/" />
       </Head>
@@ -61,7 +67,7 @@ export default function kaueLima() {
                   </Fab>
                 </Stack>
                 <Typography variant="h5" align="left" color="text.secondary" paragraph>
-                {appConfig.miniBio}
+                {miniBio}
                 </Typography>
               </Stack>
               <Image
