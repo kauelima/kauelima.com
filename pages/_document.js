@@ -17,6 +17,8 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <meta property="og:image" content="/kauelima-og.png" />
         <meta property="og:type" content="website" />
+
+        
       </Head>
       <body>
         <Main />
