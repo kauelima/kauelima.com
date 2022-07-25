@@ -2,10 +2,7 @@ import Head from 'next/head'
 import appConfig from '../config.json';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import ReactGA from 'react-ga';
 
-const TRACKING_ID = "G-9QC309Q2GB"; // TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
 
 
 function GlobalStyle() {
