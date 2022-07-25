@@ -66,7 +66,7 @@ export default function MyApp({ Component, pageProps }) {
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-          <script id="claritytracking"
+          <Script id="claritytracking"
             dangerouslySetInnerHTML={
                           {
               __html: `
