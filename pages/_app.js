@@ -82,7 +82,7 @@ export default function MyApp({ Component, pageProps }) {
             }}
           />;
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QC309Q2GB"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1PFXKD30V"></script>
         <script id="gatracking"
             dangerouslySetInnerHTML={
                           {
@@ -91,7 +91,7 @@ export default function MyApp({ Component, pageProps }) {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
     
-              gtag('config', 'G-9QC309Q2GB');`,
+              gtag('config', 'G-K1PFXKD30V');`,
             }}
           />;
         </Head>
