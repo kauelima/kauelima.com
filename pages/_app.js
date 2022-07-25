@@ -73,7 +73,7 @@ export default function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ThemeProvider>
         <GlobalStyle />
-        <Script id="claritytracking"></Script>
+        <Script id="claritytracking"
         dangerouslySetInnerHTML={
                       {
           __html: `
@@ -87,7 +87,7 @@ export default function MyApp({ Component, pageProps }) {
                   y.parentNode.insertBefore(t,y);
               })(window, document, "clarity", "script", "cxb0i3shdz");`,
         }}
-      <Script/>;
+      />;
       </>
   );
 }
