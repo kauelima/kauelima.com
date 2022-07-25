@@ -81,6 +81,19 @@ export default function MyApp({ Component, pageProps }) {
                   })(window, document, "clarity", "script", "cxb0i3shdz");`,
             }}
           />;
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QC309Q2GB"></script>
+        <script id="gatracking"
+            dangerouslySetInnerHTML={
+                          {
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-9QC309Q2GB');`,
+            }}
+          />;
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
