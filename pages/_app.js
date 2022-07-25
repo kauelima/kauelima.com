@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Script from 'next/script'
 import appConfig from '../config.json';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -66,6 +65,22 @@ export default function MyApp({ Component, pageProps }) {
       <>  
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+          <script id="claritytracking"
+            dangerouslySetInnerHTML={
+                          {
+              __html: `
+                  (function(c,l,a,r,i,t,y){
+                      c[a] = c[a] || function () { (c[a].q = c[a].q || 
+                      []).push(arguments) };
+                      t=l.createElement(r);
+                      t.async=1;
+                      t.src="https://www.clarity.ms/tag/"+i;
+                      y=l.getElementsByTagName(r)[0];
+                      y.parentNode.insertBefore(t,y);
+                  })(window, document, "clarity", "script", "cxb0i3shdz");`,
+            }}
+          />;
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -73,21 +88,6 @@ export default function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ThemeProvider>
         <GlobalStyle />
-        <Script id="claritytracking"
-        dangerouslySetInnerHTML={
-                      {
-          __html: `
-              (function(c,l,a,r,i,t,y){
-                  c[a] = c[a] || function () { (c[a].q = c[a].q || 
-                  []).push(arguments) };
-                  t=l.createElement(r);
-                  t.async=1;
-                  t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];
-                  y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "cxb0i3shdz");`,
-        }}
-      />;
       </>
   );
 }
