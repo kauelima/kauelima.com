@@ -139,7 +139,7 @@ export default function Project({ project }) {
 
           {section1Text ?
           <Typography component="p" variant="p" align="left" color="text.secondary" paragraph>
-            {section1Text + "-" + locale} 
+            {section1Text} 
             <br />
           </Typography>
           : null}
@@ -169,7 +169,7 @@ export default function Project({ project }) {
 
         {/* Section 2 */}
         <Stack>
-        {section2Title ? 
+        {section2Text ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
             {section2Title} 
           </Typography>
@@ -207,7 +207,7 @@ export default function Project({ project }) {
 
         {/* Section 3 */}
         <Stack>
-        {section3Title ? 
+        {section3Text ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
             {section3Title} 
           </Typography>
@@ -245,7 +245,7 @@ export default function Project({ project }) {
 
         {/* Section 4 */}
         <Stack>
-        {section4Title ? 
+        {section4Text ? 
           <Typography component="h2" variant="h4" align="left" color="text.secondary" paragraph>
             {section4Title} 
           </Typography>
