@@ -3,6 +3,7 @@ import Card from './components/Card';
 import CardGrid from './components/CardGrid';
 import { Varela_Round } from "next/font/google";
 import Image from 'next/image';
+import IconButton from './components/IconButton';
 
 const varela = Varela_Round({ weight: ["400"], subsets: ["latin"] });
 
@@ -38,24 +39,31 @@ const HomePage: React.FC = () => {
                   <div className="col-span-1 md:col-span-2 lg:col-span-1 h-f">
                   <Card
                     richContent={[
-                      <span key="location" className='inline-flex'>
-                        <Image src='/icons/location.svg' alt='Location' width={24} height={24} /> 
-                        Campinas - Brazil
-                      </span>,
-                      <br key="break1" />,
-                      <span key="work" className='inline-flex'>
-                        <Image src='/icons/work.svg' alt='Work' width={24} height={24} /> 
-                        Remote
-                      </span>,
-                      <br key="break2" />,
-                      <span key="linkedin" className='inline-flex'>
-                        <Image src='/icons/linkedin.svg' alt='LinkedIn' width={24} height={24} />
-                      </span>,
-                      <br key="break3" />,
-                      <span key="email" className='inline-flex'>
-                        <Image src='/icons/email.svg' alt='Email' width={24} height={24} />
-                      </span>,
-                      <br key="break4" />
+                      <div className='flex flex-col gap-5'>
+                        <div className='flex flex-col'>
+                          <span key="location" className='inline-flex'>
+                            <Image src='/icons/location.svg' alt='Location' width={24} height={24} /> 
+                            Campinas - Brazil
+                          </span>
+
+                          <span key="work" className='inline-flex'>
+                            <Image src='/icons/work.svg' alt='Work' width={24} height={24} /> 
+                            Remote
+                          </span>
+                        </div>
+                        <div className='flex flex-row gap-2'>
+                          <IconButton
+                            buttonIcon="/icons/linkedin.svg"
+                            buttonLink="https://linkedin.com/in/kauelima"
+                            buttonAlt='LinkedIn - Kaue Lima'
+                          />
+                          <IconButton
+                            buttonIcon="/icons/email.svg"
+                            buttonLink="mailto:kaue@kauelima.com"
+                            buttonAlt='Email - Kaue Lima'
+                          />
+                        </div>
+                      </div>
                     ]}
                   />
 

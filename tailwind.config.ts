@@ -13,6 +13,8 @@ const config: Config = {
         onPrimary: '#000000',
         surface: '#FFFFFF',
         onSurface: '#000000',
+        surfaceAlt: '#FAE6B8',
+        onSurfaceAlt: '#87600A',
         background: '#fafafa',
         onBackground: '#000000',
       },
