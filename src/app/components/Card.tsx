@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Image from 'next/image';
 
 interface CardProps {
     image?: string;
@@ -14,7 +15,12 @@ const Card: React.FC<CardProps> = ({ image, title, text, buttonText, buttonLink 
         <div className="flex flex-col w-full min-w-[300px] rounded-2xl overflow-hidden shadow-lg bg-surface">
             {image && (
                 <div className="w-full h-0 pb-[40%] relative overflow-hidden">
-                    <img className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-auto min-h-full" src={image} alt={title ?? 'Card Image'} />
+                    <Image
+                        src={image}
+                        alt={title ?? 'Card Image'}
+                        layout="fill"
+                        objectFit="cover"
+                    />
                 </div>
             )}
             <div className="flex flex-col flex-grow p-6 space-y-6">

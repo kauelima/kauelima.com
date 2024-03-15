@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './components/Card';
 import CardGrid from './components/CardGrid';
 import { Varela_Round } from "next/font/google";
+import Image from 'next/image';
 
 const varela = Varela_Round({ weight: ["400"], subsets: ["latin"] });
 
@@ -11,16 +12,17 @@ const HomePage: React.FC = () => {
             <header className="bg-primary text-onPrimary">
                 <div className="px-3 md:px-6 lg:px-12 flex justify-between items-center">
                     <div>
-                        <p  className="text-2xl">Hi, I'm</p>
+                        <p  className="text-2xl">{"Hi, I'm"}</p>
                         <h1 className={`${varela.className} text-7xl font-bold text-onPrimary`}>Kaue Lima</h1>
                     </div>
                     <div className="w-1/2 h-60 relative">
-                        <img 
-                            src="/images/kauelima.webp" 
-                            alt="Kaue Lima" 
-                            className="absolute w-full h-full object-cover object-center mix-blend-multiply" 
-                            style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-                        />
+                        <Image
+                        src="/images/kauelima.webp" 
+                        alt="Kaue Lima" 
+                        layout="fill" // Use "fill" to make the image cover the available space
+                        objectFit="cover" // Use "cover" to keep the aspect ratio while filling the element's box
+                        className="absolute w-full h-full object-cover object-center mix-blend-multiply"
+                    />
                     </div>
                 </div>
             </header>
