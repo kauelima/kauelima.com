@@ -39,14 +39,14 @@ const HomePage: React.FC = () => {
                   <div className="col-span-1 md:col-span-2 lg:col-span-1 h-f">
                   <Card
                     richContent={[
-                      <div key='ContandAndLocation' className='flex flex-col gap-5'>
+                      <div key='ContandAndLocation' className='flex flex-col h-full justify-between gap-y-6'>
                         <div key='Location' className='flex flex-col'>
-                          <span key="location" className='inline-flex'>
+                          <span key="location" className='inline-flex gap-2'>
                             <Image src='/icons/location.svg' alt='Location' width={24} height={24} /> 
                             Campinas - Brazil
                           </span>
 
-                          <span key="work" className='inline-flex'>
+                          <span key="work" className='inline-flex gap-2'>
                             <Image src='/icons/work.svg' alt='Work' width={24} height={24} /> 
                             Remote
                           </span>
