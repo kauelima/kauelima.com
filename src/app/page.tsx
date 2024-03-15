@@ -39,8 +39,8 @@ const HomePage: React.FC = () => {
                   <div className="col-span-1 md:col-span-2 lg:col-span-1 h-f">
                   <Card
                     richContent={[
-                      <div className='flex flex-col gap-5'>
-                        <div className='flex flex-col'>
+                      <div key='ContandAndLocation' className='flex flex-col gap-5'>
+                        <div key='Location' className='flex flex-col'>
                           <span key="location" className='inline-flex'>
                             <Image src='/icons/location.svg' alt='Location' width={24} height={24} /> 
                             Campinas - Brazil
@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
                             Remote
                           </span>
                         </div>
-                        <div className='flex flex-row gap-2'>
+                        <div key='Contact' className='flex flex-row gap-2'>
                           <IconButton
                             buttonIcon="/icons/linkedin.svg"
                             buttonLink="https://linkedin.com/in/kauelima"
