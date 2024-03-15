@@ -5,7 +5,7 @@ import Image from 'next/image';
 interface CardProps {
     image?: string;
     title?: string;
-    text?: string;
+    text?: React.ReactNode;
     buttonText?: string;
     buttonLink?: string;
 }
