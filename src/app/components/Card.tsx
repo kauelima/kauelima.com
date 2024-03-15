@@ -5,12 +5,13 @@ import Image from 'next/image';
 interface CardProps {
     image?: string;
     title?: string;
-    text?: React.ReactNode;
+    text?: string;
     buttonText?: string;
     buttonLink?: string;
+    richContent?: React.ReactNode;
 }
 
-const Card: React.FC<CardProps> = ({ image, title, text, buttonText, buttonLink }) => {
+const Card: React.FC<CardProps> = ({ image, title, text, buttonText, buttonLink, richContent }) => {
     return (
         <div className="flex flex-col w-full min-w-[300px] rounded-2xl overflow-hidden shadow-lg bg-surface">
             {image && (
@@ -27,6 +28,7 @@ const Card: React.FC<CardProps> = ({ image, title, text, buttonText, buttonLink 
                 <div className="flex flex-col flex-grow">
                     {title && <div className="font-bold text-xl mb-2 text-onSurface">{title}</div>}
                     {text && <p className="text-onSurface text-base">{text}</p>}
+                    {richContent && <div className="text-onSurface text-base">{richContent}</div>}
                 </div>
                 {buttonText && buttonLink && (
                     <div className="mt-auto">
