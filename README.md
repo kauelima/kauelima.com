@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to kauelima.com! 🎉
 
-## Getting Started
+Hello there! I'm Kaue Lima, a passionate product person from Brazil, and this is the source code repository for my personal website, [kauelima.com](https://kauelima.com/). My website serves as a digital canvas where I showcase my projects and explore the intersections of technology and creativity.
 
-First, run the development server:
+## About The Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+kauelima.com is more than just a website; it's an example of my design and an exploration of my own development habilities. Built with [Next.js](https://nextjs.org/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The website is deployed on [Vercel](https://vercel.com/), chosen for its seamless integration with Next.js, enabling instant previews and automatic deployments with every git push. Vercel also ensures that kauelima.com is always online and running smoothly, thanks to its global CDN and edge functions.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+If you like to contribute to this website in some way, please create an issue here on github or contact me on LinkedIn! Suggestions are always welcomed
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Kaue Lima - [https://linkedin.com/in/kauelima.com](https://linkedin.com/in/kauelima.com)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Project Link: [https://github.com/kauelima/kauelima.com](https://github.com/kauelima/kauelima.com)
