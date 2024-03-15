@@ -30,50 +30,35 @@ const HomePage: React.FC = () => {
                 <div className="mt-[-45px] mb-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                   <div className="col-span-2">
                     <Card
-                      richContent={[<span><strong>Product Specialist</strong> with over <strong>14 years of experience</strong> in turning design expertise into strategic product success, I&apos;m a problem solver at heart, skilled in navigating complex challenges to create solutions that delight and deliver. I&apos;ve lead cross-functional teams on creating a product from scratch as well as collaborated on products that are a success in their fields.
+                      richContent={[<span key="bio"><strong>Product Specialist</strong> with over <strong>14 years of experience</strong> in turning design expertise into strategic product success, I&apos;m a problem solver at heart, skilled in navigating complex challenges to create solutions that delight and deliver. I&apos;ve lead cross-functional teams on creating a product from scratch as well as collaborated on products that are a success in their fields.
                       <br/><br/>
                       <strong>Ready to create impact together? Let&apos;s talk!</strong></span>]}
                     />
                   </div>
                   <div className="col-span-1 md:col-span-2 lg:col-span-1 h-f">
-                    <Card
-                      richContent={[
-                        <span className='inline-flex'>
-                          <Image
-                          src='/icons/location.svg'
-                          alt='Location'
-                          width={24}
-                          height={24}
-                          /> 
-                           Campinas - Brazil
-                        </span>,<br/>,
-                        <span className='inline-flex'>
-                          <Image
-                          src='/icons/work.svg'
-                          alt='Work'
-                          width={24}
-                          height={24}
-                          /> 
-                          Remote
-                        </span>,<br/>,
-                        <span className='inline-flex'>
-                        <Image
-                        src='/icons/linkedin.svg'
-                        alt='Work'
-                        width={24}
-                        height={24}
-                        />
-                        </span>,<br/>,
-                        <span className='inline-flex'>
-                        <Image
-                        src='/icons/email.svg'
-                        alt='Work'
-                        width={24}
-                        height={24}
-                        />
-                      </span>,<br/>
-                      ]}
-                    />
+                  <Card
+                    richContent={[
+                      <span key="location" className='inline-flex'>
+                        <Image src='/icons/location.svg' alt='Location' width={24} height={24} /> 
+                        Campinas - Brazil
+                      </span>,
+                      <br key="break1" />,
+                      <span key="work" className='inline-flex'>
+                        <Image src='/icons/work.svg' alt='Work' width={24} height={24} /> 
+                        Remote
+                      </span>,
+                      <br key="break2" />,
+                      <span key="linkedin" className='inline-flex'>
+                        <Image src='/icons/linkedin.svg' alt='LinkedIn' width={24} height={24} />
+                      </span>,
+                      <br key="break3" />,
+                      <span key="email" className='inline-flex'>
+                        <Image src='/icons/email.svg' alt='Email' width={24} height={24} />
+                      </span>,
+                      <br key="break4" />
+                    ]}
+                  />
+
                   </div>
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-onBackground">Some of my work</h2>
