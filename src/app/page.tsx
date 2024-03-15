@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../app/components/Card';
-import CardGrid from '../app/components/CardGrid';
+import Card from './components/Card';
+import CardGrid from './components/CardGrid';
 import { Varela_Round } from "next/font/google";
 
 const varela = Varela_Round({ weight: ["400"], subsets: ["latin"] });
