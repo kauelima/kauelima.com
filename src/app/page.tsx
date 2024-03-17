@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from './components/Card';
 import CardGrid from './components/CardGrid';
-import { Varela_Round } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import Image from 'next/image';
 import IconButton from './components/IconButton';
 
-const varela = Varela_Round({ weight: ["400"], subsets: ["latin"] });
+const quicksand = Quicksand({ weight: ["700"], subsets: ["latin"] });
 
 const HomePage: React.FC = () => {
     return (
@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
                 <div className="px-3 md:px-6 lg:px-12 flex justify-between items-center">
                     <div>
                         <p  className="text-2xl">{"Hi, I'm"}</p>
-                        <h1 className={`${varela.className} text-7xl font-bold text-onPrimary`}>Kaue Lima</h1>
+                        <h1 className={`${quicksand.className} text-7xl font-bold text-onPrimary`}>Kaue Lima</h1>
                     </div>
                     <div className="w-1/2 h-60 relative">
                         <Image
