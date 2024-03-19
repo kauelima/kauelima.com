@@ -2,9 +2,8 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -17,6 +16,12 @@ const config: Config = {
         onSurfaceAlt: '#87600A',
         background: '#fafafa',
         onBackground: '#000000',
+        projectBlue: '#B6E3F4',
+        projectGreen: '#C0EADE',
+        projectPink: '#FFD5DC',
+        projectPurple: '#D1D4F9',
+        projectOrange: '#FFDFBF',
+        onProject: '#000000',
       },
   },
   },
