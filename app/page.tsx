@@ -10,7 +10,8 @@ const quicksand = Quicksand({ weight: ["700"], subsets: ["latin"] });
 const HomePage: React.FC = () => {
     return (
         <>
-            <header className="bg-primary text-onPrimary">
+        <header className="bg-primary text-onPrimary">
+        <div className="container mx-auto px-3"> 
                 <div className="px-3 md:px-6 lg:px-12 flex justify-between items-center">
                     <div>
                         <p  className="text-2xl">{"Hi, I'm"}</p>
@@ -26,7 +27,10 @@ const HomePage: React.FC = () => {
                     />
                     </div>
                 </div>
+                </div>
             </header>
+        <div className="container mx-auto px-3"> 
+            
             <div className="px-3 md:px-6 lg:pxs-12 my-4">
                 <div className="mt-[-45px] mb-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                   <div className="col-span-2">
@@ -75,6 +79,8 @@ const HomePage: React.FC = () => {
                     title="Field App Redesign"
                     image="/images/fieldy.jpg"
                     text="Fieldy was developed in partnership with MBLabs, a software-house in Campinas, Brazil for Fieldy. Fieldy is a company inside of Ativy group focused on developing mobility solutions for sales representative in the field."
+                    // buttonText="View Project Details"
+                    // buttonLink="/projects/fieldy"
                     
                   />
                   <Card
@@ -109,6 +115,7 @@ const HomePage: React.FC = () => {
                   />
                 </CardGrid>
             </div>
+          </div>
         </>
     );
 };

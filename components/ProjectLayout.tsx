@@ -27,13 +27,15 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({
   return (
     <>
       <header className={`bg-${color} text-onProject h-64`}>
+      <div className="container mx-auto px-3 flex items-center h-full"> 
         <div className="px-3 md:px-6 lg:px-12 flex items-center h-full">
           <h1 className={`${quicksand.className} text-7xl font-bold`}>
             {name}
           </h1>
         </div>
+        </div>
       </header>
-
+      <div className="container mx-auto px-3"> 
       <div className="px-3 md:px-6 lg:pxs-12 my-4">
         <div className="mt-[-45px] mb-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           <div className="col-span-2">
@@ -56,6 +58,7 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({
         <div className="mt-auto">
             <Button buttonText="View Other Projects" buttonLink="../" />
         </div>
+      </div>
       </div>
     </>
   );
