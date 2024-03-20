@@ -5,6 +5,14 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'bg-primary',
+    'bg-projectBlue',
+    'bg-projectGreen',
+    'bg-projectPink',
+    'bg-projectPurple',
+    'bg-projectOrange',
+  ],
   theme: {
     extend: {
       colors: {
