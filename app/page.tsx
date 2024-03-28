@@ -77,8 +77,6 @@ const HomePage: React.FC = () => {
                     title="Field App Redesign"
                     image="/images/fieldy.jpg"
                     text="Fieldy was developed in partnership with MBLabs, a software-house in Campinas, Brazil for Fieldy. Fieldy is a company inside of Ativy group focused on developing mobility solutions for sales representative in the field."
-                    buttonText="View Project Details"
-                    buttonLink="/projects/example"
                     
                   />
                   <Card
