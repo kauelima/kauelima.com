@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 import CardGrid from '../components/CardGrid';
 import { Quicksand } from "next/font/google";
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import IconButton from '../components/IconButton';
 
 const quicksand = Quicksand({ weight: ["700"], subsets: ["latin"] });
