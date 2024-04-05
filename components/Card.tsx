@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface CardProps {
     image?: string;
@@ -19,9 +19,11 @@ const Card: React.FC<CardProps> = ({ image, title, text, buttonText, buttonLink,
                     <Image
                         src={image}
                         alt={title ?? 'Card Image'}
-                        layout="fill"
-                        objectFit="cover"
-                    />
+                        fill
+                        sizes="100vw"
+                        style={{
+                            objectFit: "cover"
+                        }} />
                 </div>
             )}
             <div className="flex flex-col flex-grow p-6 space-y-6">
