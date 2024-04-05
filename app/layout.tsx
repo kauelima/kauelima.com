@@ -7,9 +7,11 @@ const poppins = Poppins({ weight: ["100", "200", "300", "400", "500", "600", "70
 
 export const metadata: Metadata = {
   title: "Kaue Lima - Product Specialist",
+  authors: [{ name: "Kaue Lima", url: "https://kauelima.com" }],
   description: "Discover how a Product Specialist with 14+ years of design and strategic expertise transforms challenges into successful products. Expert in leading cross-functional teams and collaboration. Ready to create impact? Let's connect!",
   openGraph: {
     title: "Kaue Lima - Product Specialist", 
+    type: "website",
     images: [
       {
         url: "../og-image.png",
