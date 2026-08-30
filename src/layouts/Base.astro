@@ -1,0 +1,66 @@
+---
+import { Font } from 'astro:assets';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Set on the home page only, where the <title> is the bare brand. */
+  bareTitle?: boolean;
+}
+
+const {
+  title,
+  description = 'Kaue Lima — Product Specialist with 14 years turning design expertise into product outcomes. Campinas, Brazil.',
+  bareTitle = false,
+} = Astro.props;
+
+const fullTitle = bareTitle ? title : `${title} — Kaue Lima`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og-image.png', Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f8f7f3" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <Font cssVariable="--font-archivo" preload />
+    <Font cssVariable="--font-inter" />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:px-4 focus:py-3 focus:font-medium focus:text-paper">
+      Skip to content
+    </a>
+    <SiteHeader />
+    <main id="main" class="grow">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

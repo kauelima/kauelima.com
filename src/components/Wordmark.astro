@@ -1,0 +1,71 @@
+---
+/**
+ * The KAUELIMA wordmark, deliberately cropped at both viewport edges.
+ *
+ * Two details make this robust rather than fragile:
+ *
+ * 1. `textLength` + `lengthAdjust` force the word to occupy exactly the
+ *    viewBox width regardless of which font is actually resolved. That means
+ *    no metric shift between the fallback and Archivo — the crop is identical
+ *    before and after the webfont lands.
+ * 2. `preserveAspectRatio="xMidYMid slice"` scales the SVG to *cover* its box,
+ *    so a box narrower than the 5:1 viewBox crops the word symmetrically.
+ *    Crop depth is therefore just the box height, which we vary per breakpoint:
+ *    gentle on phones (the name still reads), deep on desktop.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['wordmark', className]} aria-hidden="true">
+  <svg viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice" role="presentation">
+    <text
+      x="500"
+      y="158"
+      text-anchor="middle"
+      textLength="1000"
+      lengthAdjust="spacingAndGlyphs">KAUELIMA</text>
+  </svg>
+</div>
+<span class="sr-only">Kaue Lima</span>
+
+<style>
+  .wordmark {
+    width: 100%;
+    /* Deliberate: the SVG is scaled to cover, so this height *is* the crop. */
+    height: 22vw;
+    overflow: hidden;
+  }
+
+  .wordmark svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wordmark text {
+    font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 200px;
+    letter-spacing: -0.045em;
+    fill: var(--color-ink);
+  }
+
+  /* Crop deepens as the viewport widens. */
+  @media (min-width: 640px)  { .wordmark { height: 27vw; } }
+  @media (min-width: 768px)  { .wordmark { height: 30vw; } }
+  @media (min-width: 1024px) { .wordmark { height: 34vw; } }
+  @media (min-width: 1280px) { .wordmark { height: 36vw; max-height: 72vh; } }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

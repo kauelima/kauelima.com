@@ -1,0 +1,139 @@
+---
+const { pathname } = Astro.url;
+const nav = [
+  { href: '/design', label: 'Design' },
+  { href: '/product', label: 'Product' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+const isCurrent = (href: string) => pathname === href || pathname.startsWith(href + '/');
+---
+
+<header class="sticky top-0 z-50 border-b border-rule bg-paper/85 backdrop-blur-md">
+  <div class="wrap flex items-center justify-between gap-4 py-3.5">
+    <a
+      href="/"
+      class="group flex min-h-11 items-center gap-2.5 font-display text-base font-extrabold tracking-tight"
+      aria-label="Kaue Lima — home">
+      <span class="block size-3 shrink-0 bg-yellow transition-transform duration-300 group-hover:rotate-45"></span>
+      kauelima
+    </a>
+
+    <!-- Desktop -->
+    <nav class="hidden md:block" aria-label="Primary">
+      <ul class="flex items-center gap-1">
+        {nav.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={isCurrent(href) ? 'page' : undefined}
+              class:list={[
+                'flex min-h-11 items-center px-3 text-sm font-medium transition-colors',
+                isCurrent(href) ? 'text-ink' : 'text-mute hover:text-ink',
+              ]}>
+              <span class:list={['relative', isCurrent(href) && 'nav-current']}>{label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Mobile -->
+    <button
+      type="button"
+      id="menu-toggle"
+      class="flex min-h-11 items-center px-2 font-display text-sm font-bold tracking-tight md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu">
+      <span data-label>Menu</span>
+    </button>
+  </div>
+
+</header>
+
+<!-- Deliberately a sibling of <header>, not a child: the header's
+     backdrop-filter would otherwise become the containing block for this
+     fixed overlay and collapse it to zero height. -->
+<div
+  id="mobile-menu"
+  hidden
+  class="fixed inset-0 top-[var(--header-h,57px)] z-40 bg-yellow md:hidden">
+  <nav class="wrap flex h-full flex-col justify-start pt-8" aria-label="Primary mobile">
+    <ul class="flex flex-col">
+      {nav.map(({ href, label }) => (
+        <li class="border-b border-ink/15">
+          <a
+            href={href}
+            aria-current={isCurrent(href) ? 'page' : undefined}
+            class="flex min-h-16 items-center font-display text-4xl font-extrabold tracking-tight text-ink">
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="mailto:kaue@kauelima.com" class="mt-8 inline-flex min-h-11 items-center text-base font-medium text-ink underline underline-offset-4">
+      kaue@kauelima.com
+    </a>
+  </nav>
+</div>
+
+<style>
+  .nav-current::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 3px;
+    background: var(--color-yellow);
+  }
+</style>
+
+<script>
+  const header = document.querySelector('header');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const label = toggle?.querySelector('[data-label]');
+
+  if (header && toggle && menu && label) {
+    // Pin the overlay directly beneath the real header height.
+    const setH = () =>
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    setH();
+    addEventListener('resize', setH);
+
+    const focusables = () =>
+      [...menu.querySelectorAll<HTMLElement>('a[href]')].filter((el) => el.offsetParent !== null);
+
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      label.textContent = open ? 'Close' : 'Menu';
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) focusables()[0]?.focus();
+    };
+
+    toggle.addEventListener('click', () => setOpen(menu.hidden));
+
+    document.addEventListener('keydown', (e) => {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') {
+        setOpen(false);
+        toggle.focus();
+        return;
+      }
+      // Trap focus inside the overlay while it is open.
+      if (e.key === 'Tab') {
+        const items = [toggle, ...focusables()];
+        const i = items.indexOf(document.activeElement as HTMLElement);
+        if (i === -1) return;
+        e.preventDefault();
+        const next = e.shiftKey ? (i - 1 + items.length) % items.length : (i + 1) % items.length;
+        items[next].focus();
+      }
+    });
+
+    // Close if the viewport grows past the mobile breakpoint while open.
+    matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches && !menu.hidden) setOpen(false);
+    });
+  }
+</script>

@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+
+   Yellow is a SURFACE, never body text. #FFE500 on paper is ~1.2:1 contrast —
+   illegible. It appears as fills, highlight swashes, hover states and rules;
+   text sitting on yellow is always --color-ink.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-paper: #f8f7f3;
+  --color-card: #ffffff;
+  --color-ink: #0b0b0b;
+  --color-mute: #6b6a64;
+  --color-rule: #dfddd4;
+  --color-yellow: #ffe500;
+  --color-yellow-deep: #d9b800;
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid scale: min is the 375px value, max the 1440px+ value. */
+  --text-mega: clamp(3.5rem, 14vw, 13rem);
+  --text-display: clamp(2.5rem, 7vw, 6rem);
+  --text-title: clamp(1.75rem, 4vw, 3.25rem);
+  --text-lead: clamp(1.125rem, 1.6vw, 1.5rem);
+
+  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
+  --spacing-section: clamp(4rem, 10vw, 10rem);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    /* Oversized cropped type is the whole design language here; never let it
+       produce a horizontal scrollbar. */
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background-color: var(--color-yellow);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility wrap {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
