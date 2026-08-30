@@ -38,7 +38,7 @@ const { class: className = '' } = Astro.props;
 <style>
   .wordmark {
     width: 100%;
-    height: 24vw;
+    height: 20vw;
     overflow: hidden;
   }
 
@@ -56,11 +56,13 @@ const { class: className = '' } = Astro.props;
     fill: var(--color-ink);
   }
 
-  /* Bigger and more cropped as the viewport widens. */
-  @media (min-width: 640px)  { .wordmark { height: 28vw; } }
-  @media (min-width: 768px)  { .wordmark { height: 30vw; } }
-  @media (min-width: 1024px) { .wordmark { height: 32vw; } }
-  @media (min-width: 1280px) { .wordmark { height: 34vw; max-height: 70vh; } }
+  /* Crop deepens gently as the viewport widens. The box height *is* the crop:
+     visible fraction = (boxWidth / boxHeight) / 7.16, the viewBox aspect. This
+     ramp keeps roughly KAUEL readable throughout. */
+  @media (min-width: 640px)  { .wordmark { height: 21vw; } }
+  @media (min-width: 768px)  { .wordmark { height: 22vw; } }
+  @media (min-width: 1024px) { .wordmark { height: 23vw; } }
+  @media (min-width: 1280px) { .wordmark { height: 24vw; max-height: 60vh; } }
 
   .sr-only {
     position: absolute;
