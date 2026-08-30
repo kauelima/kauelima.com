@@ -1,17 +1,22 @@
 ---
 /**
- * The KAUELIMA wordmark, deliberately cropped at both viewport edges.
+ * Decorative KAUELIMA wordmark, anchored top-left and cropped off the right.
  *
- * Two details make this robust rather than fragile:
+ * Three details keep this robust:
  *
- * 1. `textLength` + `lengthAdjust` force the word to occupy exactly the
- *    viewBox width regardless of which font is actually resolved. That means
- *    no metric shift between the fallback and Archivo — the crop is identical
- *    before and after the webfont lands.
- * 2. `preserveAspectRatio="xMidYMid slice"` scales the SVG to *cover* its box,
- *    so a box narrower than the 5:1 viewBox crops the word symmetrically.
- *    Crop depth is therefore just the box height, which we vary per breakpoint:
- *    gentle on phones (the name still reads), deep on desktop.
+ * 1. `textLength` + `lengthAdjust` force the word to exactly fill the viewBox
+ *    width whatever font resolves, so the crop is identical before and after
+ *    Archivo lands — no reflow on webfont swap.
+ * 2. `preserveAspectRatio="xMinYMin slice"` scales to *cover* and pins the
+ *    top-left corner, so the K is always fully visible and every letter is
+ *    lost from the right edge instead of both.
+ * 3. The viewBox and the text origin are trimmed to the *painted* ink box —
+ *    measured from rendered pixels, not font metrics, since getBBox() reports
+ *    the line box. That removes the ascender gap above the caps and the K's
+ *    left side bearing, so the block sits genuinely flush to the header and
+ *    the left edge.
+ *
+ * Crop depth is just the box height: taller box, deeper crop.
  */
 interface Props {
   class?: string;
@@ -20,11 +25,10 @@ const { class: className = '' } = Astro.props;
 ---
 
 <div class:list={['wordmark', className]} aria-hidden="true">
-  <svg viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice" role="presentation">
+  <svg viewBox="0 0 1000 139.6" preserveAspectRatio="xMinYMin slice" role="presentation">
     <text
-      x="500"
-      y="158"
-      text-anchor="middle"
+      x="-13.3"
+      y="137.5"
       textLength="1000"
       lengthAdjust="spacingAndGlyphs">KAUELIMA</text>
   </svg>
@@ -34,8 +38,7 @@ const { class: className = '' } = Astro.props;
 <style>
   .wordmark {
     width: 100%;
-    /* Deliberate: the SVG is scaled to cover, so this height *is* the crop. */
-    height: 22vw;
+    height: 24vw;
     overflow: hidden;
   }
 
@@ -53,11 +56,11 @@ const { class: className = '' } = Astro.props;
     fill: var(--color-ink);
   }
 
-  /* Crop deepens as the viewport widens. */
-  @media (min-width: 640px)  { .wordmark { height: 27vw; } }
+  /* Bigger and more cropped as the viewport widens. */
+  @media (min-width: 640px)  { .wordmark { height: 28vw; } }
   @media (min-width: 768px)  { .wordmark { height: 30vw; } }
-  @media (min-width: 1024px) { .wordmark { height: 34vw; } }
-  @media (min-width: 1280px) { .wordmark { height: 36vw; max-height: 72vh; } }
+  @media (min-width: 1024px) { .wordmark { height: 32vw; } }
+  @media (min-width: 1280px) { .wordmark { height: 34vw; max-height: 70vh; } }
 
   .sr-only {
     position: absolute;

@@ -1,0 +1,15 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ProjectIndex from '@/components/ProjectIndex.astro';
+import { getProjects } from '@/lib/projects';
+
+const projects = await getProjects();
+const lead =
+  'Design and product work, side by side — because on most of these I did both.';
+---
+
+<Base title="Projects" description={lead}>
+  <PageHeader eyebrow="Projects" title="Selected work" lead={lead} />
+  <ProjectIndex projects={projects} />
+</Base>

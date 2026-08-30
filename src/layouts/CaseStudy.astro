@@ -1,29 +1,26 @@
 ---
 import { Image } from 'astro:assets';
 import Base from './Base.astro';
-import { framingFor, type Discipline, type Project } from '@/lib/projects';
+import { disciplineLabel, type Project } from '@/lib/projects';
 
 interface Props {
   project: Project;
-  discipline: Discipline;
 }
 
-const { project, discipline } = Astro.props;
-const { title, client, year, summary, cover, tags, url, disciplines } = project.data;
-const { headline, role, contributions } = framingFor(project, discipline);
-
-const other: Discipline = discipline === 'design' ? 'product' : 'design';
-const alsoIn = disciplines.includes(other);
+const { project } = Astro.props;
+const { title, client, year, summary, cover, tags, url, headline, role, contributions } =
+  project.data;
+const label = disciplineLabel(project);
 ---
 
 <Base title={title} description={summary}>
   <article>
     <header class="wrap pb-10 pt-12 md:pb-14 md:pt-20">
       <a
-        href={`/${discipline}`}
+        href="/projects"
         class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-mute hover:text-ink">
         <span aria-hidden="true">&larr;</span>
-        {discipline === 'design' ? 'Design' : 'Product'}
+        Projects
       </a>
 
       <h1 class="mt-6 text-display font-extrabold">{title}</h1>
@@ -45,6 +42,10 @@ const alsoIn = disciplines.includes(other);
         <div>
           <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Year</dt>
           <dd class="mt-1.5 font-medium">{year}</dd>
+        </div>
+        <div>
+          <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Discipline</dt>
+          <dd class="mt-1.5 font-medium">{label}</dd>
         </div>
         {role && (
           <div>
@@ -98,20 +99,6 @@ const alsoIn = disciplines.includes(other);
       </div>
     </div>
 
-    {alsoIn && (
-      <aside class="wrap pt-16">
-        <a
-          href={`/${other}/${project.id}`}
-          class="flex flex-col gap-2 border-t border-ink py-8 transition-colors hover:bg-yellow sm:flex-row sm:items-baseline sm:justify-between">
-          <span class="font-display text-title font-extrabold">
-            See the {other} side
-          </span>
-          <span class="text-mute">
-            Same project, framed as {other} work &rarr;
-          </span>
-        </a>
-      </aside>
-    )}
   </article>
 </Base>
 

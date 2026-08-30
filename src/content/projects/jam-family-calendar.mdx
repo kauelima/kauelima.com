@@ -9,23 +9,19 @@ tags: ['Mobile', 'iOS', 'Android', 'Web', 'AI', 'Consumer']
 order: 1
 featured: true
 url: https://www.jamfamilycalendar.com/
-design:
-  headline: "Designing calm into the most chaotic surface in a family's life"
-  role: "Product Designer"
-  contributions:
-    - End-to-end product design across iOS, Android and web
-    - Design system and cross-platform component library
-    - Information architecture for shared calendars, lists and assignments
-    - Onboarding and the email-forwarding capture flow
-product:
-  headline: "Shaping an AI capture loop that removes the work of staying organised"
-  role: "Product Manager"
-  contributions:
-    - Roadmap and prioritisation across three platforms
-    - Discovery with parents; defining the core coordination loop
-    - Spec and rollout of AI-powered email-to-event extraction
-    - Activation and retention instrumentation
+headline: "Designing calm into the most chaotic surface in a family's life"
+role: "Product Designer & Product Manager"
+contributions:
+  - "End-to-end product design across iOS, Android and web"
+  - "Design system and cross-platform component library"
+  - "Information architecture for shared calendars, lists and assignments"
+  - "Onboarding and the email-forwarding capture flow"
+  - "Roadmap and prioritisation across three platforms"
+  - "Discovery with parents; defining the core coordination loop"
+  - "Spec and rollout of AI-powered email-to-event extraction"
+  - "Activation and retention instrumentation"
 ---
+
 
 Jam is a shared family calendar built on a simple observation: the hard part of
 family logistics is not *displaying* the schedule, it is **getting the schedule
@@ -70,13 +66,18 @@ and Jam extracts the events and adds them to the calendar. It turns the most
 tedious step into a single gesture, and it is the reason the calendar stays
 current instead of decaying after week three.
 
-<OnlyIn discipline="design">
+## Approach
 
-## Design approach
+The core bet was that **capture, not display, is the retention lever**. A family
+calendar that requires manual entry degrades predictably: heavy use in week one,
+abandonment by week four, because the cost of keeping it accurate exceeds the
+benefit of it being accurate. Email forwarding attacks that directly — a
+deliberately low-ceremony interface with no integration to configure, no
+permissions to grant, and no new habit beyond one the user already has.
 
-The interface had to work for a parent standing in a school pickup line: one
-hand, ten seconds, high stakes. That constraint drove the visual system toward
-strong colour-coding per family member, generous touch targets, and a
+That bet set the design constraints too. The interface had to work for a parent
+standing in a school pickup line: one hand, ten seconds, high stakes. Which
+drove strong colour-coding per family member, generous touch targets, and an
 information hierarchy that answers *whose, when, where* before anything else.
 
 Cross-platform parity mattered more than platform idiom — families mix iPhone
@@ -86,29 +87,9 @@ the coordination failure the product exists to remove.
 {/* TODO(kaue): the parts only you can write —
      - the specific IA decision you're proudest of
      - what the first design direction got wrong
-     - a before/after of the capture flow */}
-
-</OnlyIn>
-
-<OnlyIn discipline="product">
-
-## Product approach
-
-The core bet was that **capture, not display, is the retention lever**. A family
-calendar that requires manual entry degrades predictably: heavy use in week one,
-abandonment by week four, because the cost of keeping it accurate exceeds the
-benefit of it being accurate.
-
-Email forwarding attacks that directly. It is a deliberately low-ceremony
-interface — no integration to configure, no permissions to grant, no new habit
-beyond one the user already has.
-
-{/* TODO(kaue): the parts only you can write —
-     - activation and retention numbers you're able to share publicly
      - how you sequenced the three platforms
-     - a bet that didn't pay off and what you changed */}
-
-</OnlyIn>
+     - activation and retention numbers you can share publicly
+     - a bet that didn't pay off, and what you changed */}
 
 ## Outcome
 

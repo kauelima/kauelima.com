@@ -1,23 +1,20 @@
 ---
 import { Image } from 'astro:assets';
-import { framingFor, primaryDiscipline, type Discipline, type Project } from '@/lib/projects';
+import { disciplineLabel, type Project } from '@/lib/projects';
 
 interface Props {
   project: Project;
-  /** Which section's framing to show. Omit on mixed listings. */
-  discipline?: Discipline;
   index: number;
 }
 
-const { project, discipline, index } = Astro.props;
-const target = primaryDiscipline(project, discipline);
-const { headline } = framingFor(project, discipline ?? target);
-const { title, client, year, cover } = project.data;
+const { project, index } = Astro.props;
+const { title, client, year, cover, headline } = project.data;
+const label = disciplineLabel(project);
 const num = String(index + 1).padStart(2, '0');
 ---
 
 <li class="project-row border-b border-rule">
-  <a href={`/${target}/${project.id}`} class="block px-[var(--spacing-gutter)] py-6 md:py-8">
+  <a href={`/projects/${project.id}`} class="block px-[var(--spacing-gutter)] py-6 md:py-8">
     <div class="wrap-none grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-2 md:grid-cols-[3.5rem_1fr_auto] md:gap-x-8">
       <span class="font-display text-sm font-bold text-mute md:text-base">{num}</span>
 
@@ -30,6 +27,8 @@ const num = String(index + 1).padStart(2, '0');
         <span>{client}</span>
         <span class="mx-2 opacity-60" aria-hidden="true">/</span>
         <span>{year}</span>
+        <span class="mx-2 opacity-60" aria-hidden="true">/</span>
+        <span>{label}</span>
       </p>
 
       <!--

@@ -10,7 +10,7 @@
  * Screenshots land in .shots/ (gitignored) for visual review.
  *
  *   npm run shots                    # default routes, both viewports
- *   npm run shots -- /design /about  # only these routes
+ *   npm run shots -- /projects /about  # only these routes
  *   npm run shots -- --sweep         # all five widths
  */
 import { chromium } from 'playwright';
@@ -21,12 +21,11 @@ const OUT = '.shots';
 
 const DEFAULT_ROUTES = [
   '/',
-  '/design',
-  '/product',
+  '/projects',
   '/about',
   '/contact',
-  '/design/jam-family-calendar',
-  '/product/jam-family-calendar',
+  '/projects/jam-family-calendar',
+  '/projects/conectapay',
 ];
 
 const PRIMARY = [

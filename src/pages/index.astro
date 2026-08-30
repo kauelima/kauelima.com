@@ -2,19 +2,19 @@
 import Base from '@/layouts/Base.astro';
 import Wordmark from '@/components/Wordmark.astro';
 import ProjectIndex from '@/components/ProjectIndex.astro';
-import { getAllProjects } from '@/lib/projects';
+import { getProjects } from '@/lib/projects';
 
-const projects = await getAllProjects();
+const projects = await getProjects();
 const selected = projects.slice(0, 4);
 
 const doors = [
   {
-    href: '/design',
+    href: '/projects',
     label: 'Design',
     copy: 'Interfaces, systems and the craft of making complex things feel obvious.',
   },
   {
-    href: '/product',
+    href: '/projects',
     label: 'Product',
     copy: 'Discovery, strategy and the decisions that make a product worth building.',
   },
@@ -23,7 +23,7 @@ const doors = [
 
 <Base title="Kaue Lima — Product Specialist" bareTitle>
   <!-- Hero -->
-  <section class="pt-6 md:pt-10">
+  <section>
     <Wordmark />
 
     <div class="wrap mt-8 grid gap-6 md:mt-12 md:grid-cols-[1fr_auto] md:items-end">
@@ -63,7 +63,7 @@ const doors = [
     <div class="wrap flex items-baseline justify-between gap-4 pb-8">
       <h2 class="text-title font-extrabold">Selected work</h2>
       <a
-        href="/design"
+        href="/projects"
         class="inline-flex min-h-11 items-center text-sm font-medium text-mute hover:text-ink">
         All projects &rarr;
       </a>

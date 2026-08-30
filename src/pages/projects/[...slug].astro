@@ -1,11 +1,10 @@
 ---
 import { render } from 'astro:content';
 import CaseStudy from '@/layouts/CaseStudy.astro';
-import OnlyIn from '@/components/OnlyIn.astro';
-import { getProjectsFor } from '@/lib/projects';
+import { getProjects } from '@/lib/projects';
 
 export async function getStaticPaths() {
-  const projects = await getProjectsFor('product');
+  const projects = await getProjects();
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },
@@ -16,6 +15,6 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<CaseStudy project={project} discipline="product">
-  <Content components={{ OnlyIn }} />
+<CaseStudy project={project}>
+  <Content />
 </CaseStudy>

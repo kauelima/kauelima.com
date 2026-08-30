@@ -13,35 +13,29 @@ npm run build
 npm run shots                  # responsive check, see below
 ```
 
-## How the work sections fit together
+## Content model
 
-Design and Product are sibling sections, and **the same project can appear in
-both** with different framing — without duplicating content.
+One `projects` collection (`src/content.config.ts`) backs a single index at
+`/projects`. Design and product work sit side by side in one list, because most
+projects involved both.
 
-A single `projects` collection (`src/content.config.ts`) backs both. Each entry
-in `src/content/projects/*.mdx` declares:
+Each entry in `src/content/projects/*.mdx`:
 
 ```yaml
-disciplines: ['design', 'product']
-design:
-  headline: "..."      # what /design shows and leads with
-  role: "..."
-  contributions: [...]
-product:
-  headline: "..."      # what /product shows and leads with
-  role: "..."
-  contributions: [...]
+title, client, year, summary
+disciplines: ['design', 'product']   # a label on the row, not routing
+headline: "..."                      # what the index row leads with
+role: "Product Designer & Product Manager"
+contributions: [...]
+cover: ../../assets/covers/<slug>.svg
+order: 1                             # lower sorts first
 ```
 
-- Index pages filter on `disciplines.includes(d)`.
-- `getStaticPaths` filters the same way, so a design-only project never
-  generates a `/product/` URL.
-- Both detail routes render the shared `src/layouts/CaseStudy.astro`.
-- `<OnlyIn discipline="product">` scopes a passage of the MDX body to one
-  section; it reads the discipline from the URL.
+To add a project: drop an `.mdx` file in `src/content/projects/`, add a cover to
+`src/assets/covers/`, and set `order`.
 
-To add a project: drop an `.mdx` file in `src/content/projects/`, set
-`disciplines`, and add a cover to `src/assets/covers/`.
+The home page keeps a Design / Product pair of panels as a statement of the two
+sides of the work; both link into the same `/projects` list.
 
 ## Responsive checking
 
@@ -50,9 +44,9 @@ mobile (390x844) and desktop (1440x900), and fails on horizontal overflow,
 console errors, or tap targets under 44px. Screenshots land in `.shots/`.
 
 ```sh
-npm run shots                    # all routes, both viewports
-npm run shots -- /design /about  # specific routes
-npm run shots -- --sweep         # 375 / 768 / 1024 / 1440 / 2560
+npm run shots                      # all routes, both viewports
+npm run shots -- /projects /about  # specific routes
+npm run shots -- --sweep           # 375 / 768 / 1024 / 1440 / 2560
 ```
 
 ## Design notes
@@ -63,7 +57,10 @@ npm run shots -- --sweep         # 375 / 768 / 1024 / 1440 / 2560
 - Fonts (Archivo + Inter) are self-hosted and preloaded via Astro's built-in
   Fonts API — no third-party request.
 - The hero wordmark uses `textLength` so the crop is identical before and after
-  the webfont loads.
+  the webfont loads. It is anchored top-left (`xMinYMin slice`) so the K is
+  always whole and letters are lost off the right edge only. Its viewBox is
+  trimmed to the painted ink box — measured from rendered pixels, not font
+  metrics — so it sits flush to the header and the left edge.
 
 ## Known follow-ups
 

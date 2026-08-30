@@ -1,17 +1,16 @@
 ---
 import ProjectRow from './ProjectRow.astro';
-import type { Discipline, Project } from '@/lib/projects';
+import type { Project } from '@/lib/projects';
 
 interface Props {
   projects: Project[];
-  discipline?: Discipline;
 }
-const { projects, discipline } = Astro.props;
+const { projects } = Astro.props;
 ---
 
 <ul class="project-index border-t border-rule">
   {projects.map((project, i) => (
-    <ProjectRow project={project} discipline={discipline} index={i} />
+    <ProjectRow project={project} index={i} />
   ))}
 </ul>
 
