@@ -29,6 +29,14 @@ const alsoIn = disciplines.includes(other);
       <h1 class="mt-6 text-display font-extrabold">{title}</h1>
       <p class="mt-6 max-w-3xl text-lead text-mute">{headline}</p>
 
+      {tags.length > 0 && (
+        <ul class="mt-8 flex flex-wrap gap-2">
+          {tags.map((t) => (
+            <li class="border border-rule px-2.5 py-1 text-xs font-medium text-mute">{t}</li>
+          ))}
+        </ul>
+      )}
+
       <dl class="mt-10 grid gap-x-8 gap-y-6 border-t border-rule pt-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Client</dt>

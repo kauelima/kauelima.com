@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kauelima.com/sitemap-index.xml
