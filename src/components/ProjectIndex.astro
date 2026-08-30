@@ -1,0 +1,37 @@
+---
+import ProjectRow from './ProjectRow.astro';
+import type { Discipline, Project } from '@/lib/projects';
+
+interface Props {
+  projects: Project[];
+  discipline?: Discipline;
+}
+const { projects, discipline } = Astro.props;
+---
+
+<ul class="project-index border-t border-rule">
+  {projects.map((project, i) => (
+    <ProjectRow project={project} discipline={discipline} index={i} />
+  ))}
+</ul>
+
+<script>
+  // One listener for the whole list: move each row's reveal image to the
+  // pointer. Skipped entirely on touch and under reduced-motion, where the
+  // reveal is display:none and the inline mobile cover does the work.
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (fine && !calm) {
+    for (const list of document.querySelectorAll<HTMLElement>('.project-index')) {
+      list.addEventListener('pointermove', (e) => {
+        const row = (e.target as HTMLElement).closest<HTMLElement>('.project-row');
+        if (!row) return;
+        const reveal = row.querySelector<HTMLElement>('.row-reveal');
+        if (!reveal) return;
+        reveal.style.left = `${e.clientX}px`;
+        reveal.style.top = `${e.clientY}px`;
+      });
+    }
+  }
+</script>

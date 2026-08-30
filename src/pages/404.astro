@@ -1,0 +1,21 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+
+<Base title="Page not found" description="That page doesn't exist.">
+  <section class="wrap flex min-h-[60vh] flex-col justify-center py-20">
+    <p class="font-display text-mega font-extrabold leading-none">404</p>
+    <h1 class="mt-6 text-title font-extrabold">This page doesn't exist.</h1>
+    <p class="mt-4 max-w-md text-lead text-mute">
+      It may have moved, or the link may be wrong.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="/" class="inline-flex min-h-12 items-center bg-ink px-6 font-medium text-paper transition-colors hover:bg-yellow hover:text-ink">
+        Back home
+      </a>
+      <a href="/design" class="inline-flex min-h-12 items-center border border-ink px-6 font-medium transition-colors hover:bg-yellow">
+        See the work
+      </a>
+    </div>
+  </section>
+</Base>

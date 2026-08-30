@@ -1,0 +1,19 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ProjectIndex from '@/components/ProjectIndex.astro';
+import { getProjectsFor } from '@/lib/projects';
+
+const projects = await getProjectsFor('design');
+---
+
+<Base
+  title="Design"
+  description="Interface and product design — the craft side. Some of these projects also appear under Product, framed by the decisions rather than the pixels.">
+  <PageHeader
+    eyebrow="Design"
+    title="Design work"
+    lead="Interface and product design — the craft side. Some of these projects also appear under Product, framed by the decisions rather than the pixels."
+  />
+  <ProjectIndex projects={projects} discipline="design" />
+</Base>

@@ -1,0 +1,53 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHeader from '@/components/PageHeader.astro';
+
+const channels = [
+  {
+    label: 'Email',
+    value: 'kaue@kauelima.com',
+    href: 'mailto:kaue@kauelima.com',
+    note: 'Best for project enquiries. I reply within a couple of days.',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'in/kauelima',
+    href: 'https://www.linkedin.com/in/kauelima',
+    note: 'For anything more informal, or if we already know each other.',
+  },
+];
+---
+
+<Base
+  title="Contact"
+  description="Get in touch with Kaue Lima — product and design work, remote from Campinas, Brazil.">
+  <PageHeader
+    eyebrow="Contact"
+    title="Ready to create impact together?"
+    lead="Open to product and design work. Remote from Campinas, Brazil, and used to working across time zones."
+  />
+
+  <div class="wrap">
+    <ul class="border-t border-rule">
+      {channels.map(({ label, value, href, note }) => (
+        <li class="border-b border-rule">
+          <a
+            href={href}
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            class="group -mx-[var(--spacing-gutter)] block px-[var(--spacing-gutter)] py-8 transition-colors hover:bg-yellow md:py-10">
+            <div class="grid gap-2 md:grid-cols-[8rem_1fr_auto] md:items-baseline md:gap-8">
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-mute transition-colors group-hover:text-ink/60">
+                {label}
+              </span>
+              <span class="font-display text-title font-extrabold break-words">{value}</span>
+              <span class="text-sm text-mute transition-colors group-hover:text-ink/70 md:max-w-xs md:text-right">
+                {note}
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Driver Maplink">
+  <rect width="1200" height="800" fill="#0B0B0B"/>
+  <g fill="#FFE500" font-family="Archivo, Helvetica, Arial, sans-serif">
+    <text x="80" y="430" font-size="132" font-weight="900" letter-spacing="-6">Driver</text>
+    <text x="80" y="510" font-size="44" font-weight="600" letter-spacing="-1" opacity="0.72">Maplink</text>
+  </g>
+  <rect x="80" y="620" width="120" height="16" fill="#FFE500"/>
+</svg>

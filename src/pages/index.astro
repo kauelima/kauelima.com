@@ -1,10 +1,107 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Wordmark from '@/components/Wordmark.astro';
+import ProjectIndex from '@/components/ProjectIndex.astro';
+import { getAllProjects } from '@/lib/projects';
+
+const projects = await getAllProjects();
+const selected = projects.slice(0, 4);
+
+const doors = [
+  {
+    href: '/design',
+    label: 'Design',
+    copy: 'Interfaces, systems and the craft of making complex things feel obvious.',
+  },
+  {
+    href: '/product',
+    label: 'Product',
+    copy: 'Discovery, strategy and the decisions that make a product worth building.',
+  },
+];
 ---
 
 <Base title="Kaue Lima — Product Specialist" bareTitle>
-  <section class="pt-8 sm:pt-14">
+  <!-- Hero -->
+  <section class="pt-6 md:pt-10">
     <Wordmark />
+
+    <div class="wrap mt-8 grid gap-6 md:mt-12 md:grid-cols-[1fr_auto] md:items-end">
+      <div>
+        <h1 class="max-w-3xl text-title font-extrabold">
+          Product Specialist turning design into <span class="highlight">product outcomes</span>.
+        </h1>
+        <p class="mt-5 max-w-xl text-lead text-mute">
+          Fourteen years solving problems across design and product — from field
+          operations to consumer apps.
+        </p>
+      </div>
+
+      <dl class="flex gap-8 text-sm md:justify-end">
+        <div>
+          <dt class="font-bold uppercase tracking-[0.16em] text-mute">Based</dt>
+          <dd class="mt-1 font-medium">Campinas, BR</dd>
+        </div>
+        <div>
+          <dt class="font-bold uppercase tracking-[0.16em] text-mute">Working</dt>
+          <dd class="mt-1 font-medium">Remote</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="wrap pt-[var(--spacing-section)]">
+    <p class="max-w-4xl text-display font-extrabold leading-[0.98]">
+      I work where design and product meet — which is to say, where most of the
+      hard problems actually live.
+    </p>
+  </section>
+
+  <!-- Selected work -->
+  <section class="pt-[var(--spacing-section)]">
+    <div class="wrap flex items-baseline justify-between gap-4 pb-8">
+      <h2 class="text-title font-extrabold">Selected work</h2>
+      <a
+        href="/design"
+        class="inline-flex min-h-11 items-center text-sm font-medium text-mute hover:text-ink">
+        All projects &rarr;
+      </a>
+    </div>
+    <ProjectIndex projects={selected} />
+  </section>
+
+  <!-- Two doors -->
+  <section class="wrap pt-[var(--spacing-section)]">
+    <h2 class="sr-only">Sections</h2>
+    <div class="grid gap-px bg-rule sm:grid-cols-2">
+      {doors.map(({ href, label, copy }) => (
+        <a href={href} class="group flex min-h-56 flex-col justify-between bg-paper p-8 transition-colors hover:bg-yellow md:min-h-72 md:p-10">
+          <span class="font-display text-display font-extrabold leading-none">{label}</span>
+          <span class="mt-8 max-w-xs text-mute transition-colors group-hover:text-ink">{copy}</span>
+        </a>
+      ))}
+    </div>
   </section>
 </Base>
+
+<style>
+  .highlight {
+    background-image: linear-gradient(var(--color-yellow), var(--color-yellow));
+    background-repeat: no-repeat;
+    background-size: 100% 0.42em;
+    background-position: 0 88%;
+    /* Keeps the swash from clipping on a wrapped line. */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

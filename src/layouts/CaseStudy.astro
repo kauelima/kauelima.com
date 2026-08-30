@@ -1,0 +1,152 @@
+---
+import { Image } from 'astro:assets';
+import Base from './Base.astro';
+import { framingFor, type Discipline, type Project } from '@/lib/projects';
+
+interface Props {
+  project: Project;
+  discipline: Discipline;
+}
+
+const { project, discipline } = Astro.props;
+const { title, client, year, summary, cover, tags, url, disciplines } = project.data;
+const { headline, role, contributions } = framingFor(project, discipline);
+
+const other: Discipline = discipline === 'design' ? 'product' : 'design';
+const alsoIn = disciplines.includes(other);
+---
+
+<Base title={title} description={summary}>
+  <article>
+    <header class="wrap pb-10 pt-12 md:pb-14 md:pt-20">
+      <a
+        href={`/${discipline}`}
+        class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-mute hover:text-ink">
+        <span aria-hidden="true">&larr;</span>
+        {discipline === 'design' ? 'Design' : 'Product'}
+      </a>
+
+      <h1 class="mt-6 text-display font-extrabold">{title}</h1>
+      <p class="mt-6 max-w-3xl text-lead text-mute">{headline}</p>
+
+      <dl class="mt-10 grid gap-x-8 gap-y-6 border-t border-rule pt-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Client</dt>
+          <dd class="mt-1.5 font-medium">{client}</dd>
+        </div>
+        <div>
+          <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Year</dt>
+          <dd class="mt-1.5 font-medium">{year}</dd>
+        </div>
+        {role && (
+          <div>
+            <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Role</dt>
+            <dd class="mt-1.5 font-medium">{role}</dd>
+          </div>
+        )}
+        {url && (
+          <div>
+            <dt class="text-xs font-bold uppercase tracking-[0.16em] text-mute">Live</dt>
+            <dd class="mt-0.5">
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex min-h-11 items-center font-medium decoration-yellow decoration-4 underline-offset-4 hover:underline">
+                Visit site &nearr;
+              </a>
+            </dd>
+          </div>
+        )}
+      </dl>
+    </header>
+
+    <div class="wrap">
+      <Image src={cover} alt={`${title} — cover`} width={1600} height={1067} class="w-full" loading="eager" />
+    </div>
+
+    {contributions.length > 0 && (
+      <section class="wrap pt-14 md:pt-20">
+        <h2 class="text-xs font-bold uppercase tracking-[0.16em] text-mute">
+          What I did
+        </h2>
+        <ul class="mt-6 grid gap-x-10 gap-y-4 border-t border-rule pt-8 sm:grid-cols-2">
+          {contributions.map((c) => (
+            <li class="flex gap-3">
+              <span class="mt-2.5 block size-2 shrink-0 bg-yellow" aria-hidden="true"></span>
+              <span class="text-lead">{c}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <div class="wrap pt-14 md:pt-20">
+      <!-- prose-kl must not sit on .wrap itself: .wrap centres via
+           margin-inline:auto, which would centre the narrow measure instead of
+           aligning it to the page gutter. -->
+      <div class="prose-kl">
+        <slot />
+      </div>
+    </div>
+
+    {alsoIn && (
+      <aside class="wrap pt-16">
+        <a
+          href={`/${other}/${project.id}`}
+          class="flex flex-col gap-2 border-t border-ink py-8 transition-colors hover:bg-yellow sm:flex-row sm:items-baseline sm:justify-between">
+          <span class="font-display text-title font-extrabold">
+            See the {other} side
+          </span>
+          <span class="text-mute">
+            Same project, framed as {other} work &rarr;
+          </span>
+        </a>
+      </aside>
+    )}
+  </article>
+</Base>
+
+<style is:global>
+  /* Case-study prose. Scoped to the article so it can't leak into index pages. */
+  .prose-kl {
+    max-width: 48rem;
+  }
+  .prose-kl > * + * { margin-top: 1.25rem; }
+  .prose-kl h2 {
+    font-size: var(--text-title);
+    font-weight: 800;
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .prose-kl h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+  }
+  .prose-kl p,
+  .prose-kl li {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  .prose-kl ul { padding-left: 1.125rem; list-style: none; }
+  .prose-kl ul > li { position: relative; }
+  .prose-kl ul > li::before {
+    content: '';
+    position: absolute;
+    left: -1.125rem;
+    top: 0.65em;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: var(--color-yellow);
+  }
+  .prose-kl li + li { margin-top: 0.5rem; }
+  .prose-kl strong { font-weight: 700; }
+  .prose-kl a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
+</style>

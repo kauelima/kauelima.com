@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import { framingFor, primaryDiscipline, type Discipline, type Project } from '@/lib/projects';
+
+interface Props {
+  project: Project;
+  /** Which section's framing to show. Omit on mixed listings. */
+  discipline?: Discipline;
+  index: number;
+}
+
+const { project, discipline, index } = Astro.props;
+const target = primaryDiscipline(project, discipline);
+const { headline } = framingFor(project, discipline ?? target);
+const { title, client, year, cover } = project.data;
+const num = String(index + 1).padStart(2, '0');
+---
+
+<li class="project-row border-b border-rule">
+  <a href={`/${target}/${project.id}`} class="block px-[var(--spacing-gutter)] py-6 md:py-8">
+    <div class="wrap-none grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-2 md:grid-cols-[3.5rem_1fr_auto] md:gap-x-8">
+      <span class="font-display text-sm font-bold text-mute md:text-base">{num}</span>
+
+      <div class="min-w-0">
+        <h3 class="text-title font-extrabold">{title}</h3>
+        <p class="mt-2 max-w-2xl text-mute md:text-lg">{headline}</p>
+      </div>
+
+      <p class="col-start-2 text-sm font-medium text-mute md:col-start-3 md:text-right md:text-base">
+        <span>{client}</span>
+        <span class="mx-2 text-rule" aria-hidden="true">/</span>
+        <span>{year}</span>
+      </p>
+
+      <!--
+        Mobile gets the cover inline rather than a degraded version of the
+        desktop cursor-follow reveal, so the index is equally rich on a phone.
+      -->
+      <div class="col-start-2 mt-4 overflow-hidden md:hidden">
+        <Image src={cover} alt="" width={600} height={400} loading="lazy" class="w-full" />
+      </div>
+    </div>
+  </a>
+
+  <!-- Desktop-only cursor-follow reveal. -->
+  <div class="row-reveal" aria-hidden="true">
+    <Image src={cover} alt="" width={520} height={347} loading="lazy" />
+  </div>
+</li>
+
+<style>
+  .project-row {
+    position: relative;
+    transition: background-color 180ms ease;
+  }
+
+  .project-row a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-row h3,
+  .project-row p,
+  .project-row span {
+    transition: color 180ms ease;
+  }
+
+  .row-reveal {
+    display: none;
+    position: fixed;
+    z-index: 30;
+    width: 20rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.94);
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .row-reveal :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Pointer-based hover behaviour only — never on touch. */
+  @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+    .row-reveal { display: block; }
+
+    .project-row:hover { background-color: var(--color-yellow); }
+    .project-row:hover .text-mute { color: color-mix(in srgb, var(--color-ink) 62%, transparent); }
+    .project-row:hover .text-rule { color: color-mix(in srgb, var(--color-ink) 30%, transparent); }
+
+    .project-row:hover .row-reveal,
+    .project-row:focus-within .row-reveal {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .row-reveal { display: none !important; }
+  }
+</style>
