@@ -13,24 +13,33 @@ contributions:
   - "Led the visual design end to end, from the card to the analytics dashboard"
   - "Brand identity integration across colour, typography and imagery"
   - "Design system from scratch: brand, colour, effects, typography, icons, grid, illustration"
-  - "Component library — buttons, fields, dropdowns, alerts, tables, navigation, empty states, file upload"
+  - "Component library: buttons, fields, dropdowns, alerts, tables, navigation, empty states, file upload"
   - "Material Design colour roles as the token layer, so themes swap without redrawing components"
   - "Atomic Design component documentation, each component specced with anatomy, properties and states"
   - "Complete mobile and web user flows, from sign-up through to the lead list"
 draft: false
 ---
 
+import { Image } from 'astro:assets';
+import introImg from '../../assets/case-studies/smartcard/intro.png';
+import designSystemImg from '../../assets/case-studies/smartcard/design-system.png';
 
 Smartcard is a digital business card with an analytics layer underneath it. You
 share a card; it records that the card was seen, which link was tapped, and who
 tapped it. Built at **Bitboundaire**, a near-shore studio taking US startup
 products from ideation to launch.
 
+<Image
+  src={introImg}
+  alt="The Smartcard home screen: profile, contact details, QR code and link buttons"
+  class="mx-auto max-w-xs"
+/>
+
 ## The problem
 
 A paper business card is a dead end. It transfers information in one direction
-and reports nothing back — you hand out fifty at a conference and learn
-nothing about which fifty, or which of them ever looked at it again.
+and reports nothing back. You hand out fifty at a conference and learn nothing
+about which fifty, or which of them ever looked at it again.
 
 Meanwhile the company has the same problem one level up: it cannot see which
 of its people are actually generating contacts, or what any of that is worth.
@@ -41,9 +50,11 @@ The design reframed the card as **the top of a funnel rather than a
 credential**, and everything followed from that.
 
 **The card is the product surface.** Photo, name, title, contact details,
-company mark, a QR code and a row of link buttons — website, Instagram,
+company mark, a QR code and a row of link buttons: website, Instagram,
 WhatsApp, LinkedIn. It is the thing shared, so it carries the brand and stays
-uncluttered.
+uncluttered. Sharing itself works two ways: scan the QR code, or tap a
+physical NFC card bound to the same profile during onboarding, so the
+"smartcard" is a real object as often as it is a screen.
 
 **Every interaction is an event.** Card visits, link clicks and captured
 contacts are counted separately, because they are three different depths of
@@ -66,9 +77,15 @@ component library so they stay the same product.
 Smartcard's system was built from scratch rather than adapted, and it is the
 part of the project with the longest life.
 
-Colour uses **Material Design roles** — primary, container, surface, error and
-their `on` pairs, plus interaction, hover and press states — so the token layer
-carries meaning and components never hard-code a hex. Components are documented
+<Image
+  src={designSystemImg}
+  alt="Smartcard's colour system: Material Design roles, from primary through error, each with its container and on-color pairs"
+  class="w-full"
+/>
+
+Colour uses **Material Design roles**: primary, container, surface, error and
+their `on` pairs, plus interaction, hover and press states. The token layer
+carries meaning, so components never hard-code a hex. Components are documented
 in **Atomic Design** terms, each with anatomy, properties and states: the button
 spec alone covers label grammar, width behaviour, four states, icon slots and
 loading.
