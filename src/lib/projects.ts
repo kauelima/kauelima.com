@@ -8,7 +8,7 @@ const isPublished = ({ data }: Project) => import.meta.env.DEV || !data.draft;
 /** Every project, in display order. */
 export async function getProjects(): Promise<Project[]> {
   const all = await getCollection('projects', isPublished);
-  return all.sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
+  return all.sort((a, b) => b.data.year - a.data.year || a.data.order - b.data.order);
 }
 
 /** "Design", "Product", or "Design & Product" for the label on a row. */
