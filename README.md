@@ -1,6 +1,6 @@
 # kauelima.com
 
-Personal site of Kaue Lima — Product Specialist, Campinas, Brazil.
+Personal site of Kaue Lima, Product Specialist, Campinas, Brazil.
 
 Built with [Astro](https://astro.build) and Tailwind v4. Static output.
 
@@ -52,15 +52,15 @@ npm run shots -- --sweep           # 375 / 768 / 1024 / 1440 / 2560
 ## Design notes
 
 - Palette lives in the `@theme` block of `src/styles/global.css`.
-- **Yellow is a surface, never body text** — `#FFE500` on paper is ~1.2:1.
+- **Yellow is a surface, never body text.** `#FFE500` on paper is ~1.2:1.
   It fills blocks, highlights and hover states; text on yellow is always ink.
 - Fonts (Archivo + Inter) are self-hosted and preloaded via Astro's built-in
-  Fonts API — no third-party request.
+  Fonts API, so there is no third-party request.
 - The hero wordmark uses `textLength` so the crop is identical before and after
   the webfont loads. It is anchored top-left (`xMinYMin slice`) so the K is
   always whole and letters are lost off the right edge only. Its viewBox is
-  trimmed to the painted ink box — measured from rendered pixels, not font
-  metrics — so it sits flush to the header and the left edge.
+  trimmed to the painted ink box, measured from rendered pixels rather than font
+  metrics, so it sits flush to the header and the left edge.
 
 ## Known follow-ups
 

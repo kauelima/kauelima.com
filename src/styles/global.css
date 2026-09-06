@@ -3,8 +3,9 @@
 /* ---------------------------------------------------------------------------
    Design tokens
 
-   Yellow is a SURFACE, never body text. #FFE500 on paper is ~1.2:1 contrast —
-   illegible. It appears as fills, highlight swashes, hover states and rules;
+   Yellow is a SURFACE, never body text. #FFE500 on paper is ~1.2:1 contrast,
+   which is illegible. It appears as fills, highlight swashes, hover states
+   and rules;
    text sitting on yellow is always --color-ink.
    --------------------------------------------------------------------------- */
 @theme {

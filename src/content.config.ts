@@ -4,7 +4,7 @@ import { glob } from 'astro/loaders';
 /**
  * One projects collection, one index at /projects.
  *
- * `disciplines` no longer drives routing — it's a label, since design and
+ * `disciplines` no longer drives routing. It's a label, since design and
  * product work sit side by side in a single list rather than in separate
  * sections.
  */

@@ -6,11 +6,11 @@
  *
  * 1. `textLength` + `lengthAdjust` force the word to exactly fill the viewBox
  *    width whatever font resolves, so the crop is identical before and after
- *    Archivo lands — no reflow on webfont swap.
+ *    Archivo lands, with no reflow on webfont swap.
  * 2. `preserveAspectRatio="xMinYMin slice"` scales to *cover* and pins the
  *    top-left corner, so the K is always fully visible and every letter is
  *    lost from the right edge instead of both.
- * 3. The viewBox and the text origin are trimmed to the *painted* ink box —
+ * 3. The viewBox and the text origin are trimmed to the *painted* ink box,
  *    measured from rendered pixels, not font metrics, since getBBox() reports
  *    the line box. That removes the ascender gap above the caps and the K's
  *    left side bearing, so the block sits genuinely flush to the header and

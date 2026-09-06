@@ -13,11 +13,11 @@ interface Props {
 
 const {
   title,
-  description = 'Kaue Lima — Product Specialist with 14 years turning design expertise into product outcomes. Campinas, Brazil.',
+  description = 'Kaue Lima is a Product Specialist with 14 years turning design expertise into product outcomes. Campinas, Brazil.',
   bareTitle = false,
 } = Astro.props;
 
-const fullTitle = bareTitle ? title : `${title} — Kaue Lima`;
+const fullTitle = bareTitle ? title : `${title} · Kaue Lima`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL('/og-image.png', Astro.site).href;
 ---

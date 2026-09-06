@@ -21,7 +21,7 @@ const doors = [
 ];
 ---
 
-<Base title="Kaue Lima — Product Specialist" bareTitle>
+<Base title="Kaue Lima · Product Specialist" bareTitle>
   <!-- Hero -->
   <section>
     <Wordmark />
@@ -32,18 +32,18 @@ const doors = [
           Product Specialist turning design into <span class="highlight">product outcomes</span>.
         </h1>
         <p class="mt-5 max-w-xl text-lead text-mute">
-          Fourteen years solving problems across design and product — from field
+          Fourteen years solving problems across design and product, from field
           operations to consumer apps.
         </p>
       </div>
 
-      <dl class="flex gap-8 text-sm md:justify-end">
+      <dl class="flex gap-8 bg-yellow px-6 py-5 text-sm md:justify-end">
         <div>
-          <dt class="font-bold uppercase tracking-[0.16em] text-mute">Based</dt>
+          <dt class="font-bold uppercase tracking-[0.16em] text-ink/70">Based</dt>
           <dd class="mt-1 font-medium">Campinas, BR</dd>
         </div>
         <div>
-          <dt class="font-bold uppercase tracking-[0.16em] text-mute">Working</dt>
+          <dt class="font-bold uppercase tracking-[0.16em] text-ink/70">Working</dt>
           <dd class="mt-1 font-medium">Remote</dd>
         </div>
       </dl>
@@ -51,20 +51,25 @@ const doors = [
   </section>
 
   <!-- Statement -->
-  <section class="wrap pt-[var(--spacing-section)]">
-    <p class="max-w-4xl text-display font-extrabold leading-[0.98]">
-      I work where design and product meet — which is to say, where most of the
-      hard problems actually live.
-    </p>
+  <section class="mt-[var(--spacing-section)] bg-yellow">
+    <div class="wrap py-[clamp(3.5rem,8vw,8rem)]">
+      <p class="max-w-4xl text-display font-extrabold leading-[0.98]">
+        I work where design and product meet. Which is to say, where most of the
+        hard problems actually live.
+      </p>
+    </div>
   </section>
 
   <!-- Selected work -->
   <section class="pt-[var(--spacing-section)]">
-    <div class="wrap flex items-baseline justify-between gap-4 pb-8">
-      <h2 class="text-title font-extrabold">Selected work</h2>
+    <div class="wrap flex flex-col items-start gap-5 pb-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+      <h2 class="flex items-baseline gap-4 text-title font-extrabold">
+        <span class="inline-block size-[0.42em] shrink-0 bg-yellow" aria-hidden="true"></span>
+        Selected work
+      </h2>
       <a
         href="/projects"
-        class="inline-flex min-h-11 items-center text-sm font-medium text-mute hover:text-ink">
+        class="inline-flex min-h-11 items-center whitespace-nowrap bg-yellow px-5 text-sm font-bold transition-colors hover:bg-ink hover:text-paper">
         All projects &rarr;
       </a>
     </div>
@@ -78,7 +83,10 @@ const doors = [
       {doors.map(({ href, label, copy }) => (
         <a href={href} class="group flex min-h-56 flex-col justify-between bg-paper p-8 transition-colors hover:bg-yellow md:min-h-72 md:p-10">
           <span class="font-display text-display font-extrabold leading-none">{label}</span>
-          <span class="mt-8 max-w-xs text-mute transition-colors group-hover:text-ink">{copy}</span>
+          <span class="mt-8 block max-w-xs">
+            <span class="block h-2 w-16 bg-yellow transition-colors group-hover:bg-ink" aria-hidden="true"></span>
+            <span class="mt-5 block text-mute transition-colors group-hover:text-ink">{copy}</span>
+          </span>
         </a>
       ))}
     </div>
