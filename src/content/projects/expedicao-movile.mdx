@@ -9,21 +9,68 @@ tags: ['Logistics', 'Delivery', 'Operations']
 order: 3
 headline: "Making multi-kitchen dispatch legible at a glance"
 role: "Product Designer & Product Specialist"
-contributions: []
+contributions:
+  - "End-to-end design of the dispatch app, covering both kitchen pickup and driver handoff"
+  - "QR scanning as the single primitive for every handoff in the chain"
+  - "Colour-as-state screens readable across a noisy dispatch floor"
+  - "Slot codes to make the physical staging area addressable"
+  - "Operator and driver flows, including enqueue, assignment and unlock"
+  - "Component library and iconography for the operational states"
 draft: true
 ---
 
 
-{/* STUB: frontmatter is real, the body is yours to write. */}
+**Delivery Center**, at the time one of Movile's companies, ran a dispatch
+floor fed by several kitchens at once. Orders had to be collected from each
+kitchen, staged, and handed to the right driver — and every one of those
+handoffs was a place the order could go quiet.
 
 ## The problem
 
-{/* TODO(kaue): what was broken, and for whom. */}
+The operation had two halves that were being managed as if they were one:
+**pickup** from the kitchens, and **dispatch** to the drivers. Between them sat
+a staging area where an order was physically present but informationally
+invisible.
+
+That produced the usual failure modes of a busy floor:
+
+- **No live position.** An order was "somewhere between the kitchen and the
+  bike", which is not a state anyone can act on.
+- **Handoffs left no trace.** When an order went missing, there was no record
+  of who last held it.
+- **The floor is a bad reading environment.** Loud, fast, and no one is going
+  to stop and parse a table.
 
 ## What I did
 
-{/* TODO(kaue): your actual contribution, decisions not deliverables. */}
+The app was designed around a single idea: **every change of custody is a
+scan**, and the scan is what makes the operation legible.
+
+**One primitive, used everywhere.** QR scanning covers kitchen pickup, staging,
+driver assignment and handoff. There is one gesture to learn, and each scan
+writes the timestamp and the holder, so the order's history assembles itself
+from work people were already doing.
+
+**Colour carries the state, not text.** Scan screens go full-bleed green,
+red or neutral for confirmed, rejected and pending. On a dispatch floor the
+answer has to survive being read at arm's length, in motion, in a second — so
+the state is the whole screen rather than a label on it.
+
+**The staging area got addresses.** Short slot codes (A1, D1) turn "put it down
+somewhere" into a location the next person can be sent to, which is what closes
+the gap between kitchen and driver.
+
+**Two roles, one model.** Operator and driver flows share the same underlying
+object and the same scan, so the app is a single account of the order rather
+than two systems reconciling after the fact.
+
+{/* TODO(kaue): the parts only you can write:
+     - what the first version of the scan flow got wrong
+     - how the dark UI decision was made
+     - what the operators did that you didn't design for
+     - dispatch time or error-rate results you can share publicly */}
 
 ## Outcome
 
-{/* TODO(kaue): results you can share publicly. */}
+{/* TODO(kaue): replace with results you can share publicly. Avoid numbers you
+    can't source. A qualitative outcome is better than an invented metric. */}

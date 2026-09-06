@@ -9,21 +9,71 @@ tags: ['Payments', 'Retail', 'Hardware']
 order: 2
 headline: "Turning payment hardware into a retail data relationship"
 role: "Product Specialist"
-contributions: []
+contributions:
+  - "End-to-end design of the POS terminal flows: sale, instalments, receipt reprint and reversal"
+  - "Product catalogue and barcode capture built into the checkout, not bolted beside it"
+  - "Per-product cashback surfaced at the moment of sale as the incentive to scan"
+  - "Industry credit balance as a running, visible reason to keep using the terminal"
+  - "Daily reconciliation reporting for the shopkeeper"
+  - "Design system for a small, low-contrast, glove-and-counter screen"
 draft: true
 ---
 
 
-{/* STUB: frontmatter is real, the body is yours to write. */}
+ConectaPay was built with **British American Tobacco** to tighten the
+relationship between the industry and the retailers who actually sell its
+products. The vehicle is a smart payment terminal: it takes the sale like any
+other POS, but it also captures what was sold, which is information the
+industry otherwise never sees.
 
 ## The problem
 
-{/* TODO(kaue): what was broken, and for whom. */}
+An industry partner selling through thousands of independent corner shops is
+blind past the distributor. It knows what it shipped. It does not know what
+reached a customer, at what price, in what mix, or how any of that responded to
+a campaign.
+
+The obvious fixes all fail at the counter:
+
+- **Asking the shopkeeper to report** adds unpaid admin work to a busy till.
+- **A separate app** competes with the payment terminal already in hand and
+  loses.
+- **Distributor data** is a proxy for sell-in, never sell-out.
+
+The shopkeeper, meanwhile, has their own problem: they want a terminal that
+takes money quickly and does not slow the queue down.
 
 ## What I did
 
-{/* TODO(kaue): your actual contribution, decisions not deliverables. */}
+The design bet was that **capture has to ride on a transaction that was going
+to happen anyway**, and it has to pay the shopkeeper to happen.
+
+**Scanning is part of checkout, not an extra step.** Products go into the sale
+through a barcode scan and a catalogue built into the terminal, so the act that
+produces the data is the same act that rings up the sale.
+
+**Cashback is the incentive, shown at the moment it is earned.** The receipt
+names the identified products and the cashback each one generated. The value is
+small per item and concrete, which is what makes it credible: the shopkeeper
+sees the scan turn into money on the same screen as the sale.
+
+**The credit balance is the retention loop.** A running industry credit total
+gives the terminal a reason to be the preferred one on the counter, rather than
+whichever machine is closest.
+
+**The payment path stayed boring on purpose.** Card type, cash or instalments
+up to four, tap/insert/swipe. Around it sit the operations a real shop needs and
+most terminals handle badly: receipt reprint with an explicit choice of merchant
+copy, customer copy or both; reversal with a confirmation step; and a daily
+report that reconciles the day's takings without exporting anything.
+
+{/* TODO(kaue): the parts only you can write:
+     - what the first terminal direction got wrong
+     - what shopkeepers did in testing that you did not predict
+     - how you handled shops that scanned nothing
+     - rollout scale and adoption numbers you can share publicly */}
 
 ## Outcome
 
-{/* TODO(kaue): results you can share publicly. */}
+{/* TODO(kaue): replace with results you can share publicly. Avoid numbers you
+    can't source. A qualitative outcome is better than an invented metric. */}

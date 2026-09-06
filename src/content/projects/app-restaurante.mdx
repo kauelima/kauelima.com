@@ -9,21 +9,58 @@ tags: ['Restaurant', 'Operations']
 order: 4
 headline: "Designing for a kitchen mid-rush"
 role: "Product Designer"
-contributions: []
+contributions:
+  - "End-to-end design of the restaurant-side ordering app"
+  - "Order lifecycle model: one object tracked from received through to delivered"
+  - "Queue design for a screen read at a distance, mid-rush, without touching it"
+  - "State and escalation design for orders running late"
 draft: true
 ---
 
 
-{/* STUB: frontmatter is real, the body is yours to write. */}
+Built at **Clube da Entrega** for **McDonald's**, App Restaurante is the
+restaurant's side of the delivery operation: the screen the kitchen works from
+when orders are arriving faster than they can be cooked.
 
 ## The problem
 
-{/* TODO(kaue): what was broken, and for whom. */}
+Delivery adds a second, invisible queue to a kitchen that already has one. The
+counter queue is self-regulating, because the person waiting is standing right
+there. The delivery queue is not: the customer is a name on a screen, and the
+cost of an order slipping is paid twenty minutes later by someone else.
+
+At the busiest hours, that produced the failures that matter:
+
+- **No single view of the order.** Received, accepted, in the kitchen, ready,
+  collected — each state lived in someone's head or on paper.
+- **The urgent order looks like every other order.** A list sorted by arrival
+  gives no signal about which one is about to be late.
+- **The kitchen cannot stop to read.** Hands are full, the screen is across the
+  room, and attention comes in two-second slices.
 
 ## What I did
 
-{/* TODO(kaue): your actual contribution, decisions not deliverables. */}
+The design treated the app as an **operational instrument, not an inbox**.
+
+**One order, one lifecycle.** Every order is a single object carrying its whole
+history from receipt to delivery, so the state is never reconstructed from
+memory and the app can answer "where is it" at any moment.
+
+**The queue sorts by urgency, not arrival.** What the kitchen needs is not a
+chronological log but an answer to "what next", which means time remaining has
+to outrank time received.
+
+**Legible across the room.** Type, contrast and target sizes were set for a
+screen glanced at from a few metres away by someone holding something in both
+hands, not for a phone held at reading distance.
+
+{/* TODO(kaue): the parts only you can write:
+     - how the kitchen actually worked before the app
+     - what the first queue design got wrong
+     - how the McDonald's operation constrained the design
+     - throughput or late-order results you can share publicly */}
 
 ## Outcome
 
-{/* TODO(kaue): results you can share publicly. */}
+{/* TODO(kaue): replace with results you can share publicly. Avoid numbers you
+    can't source. A qualitative outcome is better than an invented metric. */}
