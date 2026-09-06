@@ -91,9 +91,8 @@ const label = disciplineLabel(project);
     )}
 
     <div class="wrap pt-14 md:pt-20">
-      <!-- prose-kl must not sit on .wrap itself: .wrap centres via
-           margin-inline:auto, which would centre the narrow measure instead of
-           aligning it to the page gutter. -->
+      <!-- prose-kl must not sit on .wrap itself: the measure is centred inside
+           the wrap's content box, so it needs its own element to sit in. -->
       <div class="prose-kl">
         <slot />
       </div>
@@ -104,8 +103,12 @@ const label = disciplineLabel(project);
 
 <style is:global>
   /* Case-study prose. Scoped to the article so it can't leak into index pages. */
+  /* Centred in the wrap. Below ~48rem the measure already fills the gutters,
+     so the auto margins only bite once the column stops touching both edges. */
   .prose-kl {
     max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
   }
   .prose-kl > * + * { margin-top: 1.25rem; }
   .prose-kl h2 {
