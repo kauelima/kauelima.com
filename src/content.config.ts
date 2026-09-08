@@ -24,8 +24,7 @@ const projects = defineCollection({
       contributions: z.array(z.string()).default([]),
       cover: image(),
       tags: z.array(z.string()).default([]),
-      /** Lower sorts first. */
-      order: z.number().default(100),
+      /** Selected for the home screen's "Selected work" list. */
       featured: z.boolean().default(false),
       draft: z.boolean().default(false),
       url: z.string().url().optional(),

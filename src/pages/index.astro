@@ -2,10 +2,10 @@
 import Base from '@/layouts/Base.astro';
 import Wordmark from '@/components/Wordmark.astro';
 import ProjectIndex from '@/components/ProjectIndex.astro';
-import { getProjects } from '@/lib/projects';
+import { getProjects, getHomeProjects } from '@/lib/projects';
 
 const projects = await getProjects();
-const selected = projects.slice(0, 4);
+const selected = await getHomeProjects();
 const hasMoreProjects = projects.length > selected.length;
 
 const doors = [
