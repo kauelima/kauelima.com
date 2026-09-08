@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 780" width="720" height="780" role="img"
+     aria-label="The sentence 'Create a meeting tomorrow morning with Kaue' resolved into the create-event intent plus four entities: event name Meeting, date Tomorrow, time Morning, participants Kaue. The event location entity is still empty, so it is the only thing the bot has to ask for.">
+  <defs>
+    <marker id="p-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0B0B0B"/>
+    </marker>
+    <marker id="p-arrow-mute" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#A8A8A8"/>
+    </marker>
+  </defs>
+
+  <g font-family="Archivo, Helvetica, Arial, sans-serif">
+    <!-- the user's sentence -->
+    <rect x="60" y="45" width="600" height="130" rx="10" fill="#CC3333"/>
+    <text x="88" y="98" font-size="24" font-weight="700" fill="#FFFFFF">Create a meeting tomorrow</text>
+    <text x="88" y="132" font-size="24" font-weight="700" fill="#FFFFFF">morning with Kaue</text>
+
+    <!-- spine: sentence up-left, then down to the intent and the entity stack -->
+    <path d="M42 110 V315" fill="none" stroke="#0B0B0B" stroke-width="2.5"/>
+    <path d="M42 110 h18" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M42 223 h54" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M42 315 h50" fill="none" stroke="#0B0B0B" stroke-width="2.5"/>
+
+    <!-- intent -->
+    <rect x="96" y="185" width="260" height="77" rx="8" fill="#8E68AD"/>
+    <text x="118" y="215" font-size="15" font-weight="700" fill="#FFFFFF">Intent</text>
+    <text x="118" y="243" font-size="18" fill="#FFFFFF" opacity="0.95">Create Event</text>
+
+    <!-- entity stack spine -->
+    <path d="M100 315 V585" fill="none" stroke="#0B0B0B" stroke-width="2.5"/>
+    <path d="M100 315 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M100 405 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M100 495 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M100 585 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#p-arrow)"/>
+    <path d="M100 585 V675 h36" fill="none" stroke="#A8A8A8" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#p-arrow-mute)"/>
+
+    <!-- entities found in the sentence -->
+    <rect x="136" y="277" width="524" height="76" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="158" y="308" font-size="15" font-weight="700" fill="#0B0B0B">Entity - Event name</text>
+    <text x="158" y="334" font-size="17" fill="#5C5C5C">Meeting</text>
+
+    <rect x="136" y="367" width="524" height="76" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="158" y="398" font-size="15" font-weight="700" fill="#0B0B0B">Entity - Event date</text>
+    <text x="158" y="424" font-size="17" fill="#5C5C5C">Tomorrow</text>
+
+    <rect x="136" y="457" width="524" height="76" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="158" y="488" font-size="15" font-weight="700" fill="#0B0B0B">Entity - Event time</text>
+    <text x="158" y="514" font-size="17" fill="#5C5C5C">Morning</text>
+
+    <rect x="136" y="547" width="524" height="76" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="158" y="578" font-size="15" font-weight="700" fill="#0B0B0B">Entity - Participants</text>
+    <text x="158" y="604" font-size="17" fill="#5C5C5C">Kaue</text>
+
+    <!-- the one entity still missing: the only thing the bot asks for -->
+    <rect x="136" y="637" width="524" height="76" rx="8" fill="#FFFFFF" stroke="#C9C9C9" stroke-width="1.75" stroke-dasharray="7 7"/>
+    <text x="158" y="668" font-size="15" font-weight="700" fill="#A8A8A8">Entity - Event location</text>
+    <text x="158" y="694" font-size="17" fill="#A8A8A8">Still missing, so the bot asks</text>
+  </g>
+</svg>

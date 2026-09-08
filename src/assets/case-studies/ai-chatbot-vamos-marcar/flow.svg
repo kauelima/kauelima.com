@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" width="1100" height="480" role="img"
+     aria-label="The conversation flow: the Vamos Marcar bot sends a welcome, identifies the intent, hands off to the entity router, which fans out to one entity collector per field still missing.">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0B0B0B"/>
+    </marker>
+  </defs>
+
+  <g font-family="Archivo, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <!-- brand speech bubble -->
+    <path d="M44 165 h152 a22 22 0 0 1 22 22 v96 a22 22 0 0 1 -22 22 h-104 l-36 30 v-30 h-12 a22 22 0 0 1 -22 -22 v-96 a22 22 0 0 1 22 -22 z" fill="#CC3333"/>
+    <text x="120" y="225" font-size="30" font-weight="800" fill="#FFFFFF">Vamos</text>
+    <text x="120" y="266" font-size="30" font-weight="800" fill="#FFFFFF">Marcar?</text>
+
+    <line x1="222" y1="235" x2="254" y2="235" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- welcome -->
+    <rect x="256" y="170" width="180" height="130" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="2"/>
+    <text x="346" y="243" font-size="24" fill="#0B0B0B">Welcome</text>
+
+    <line x1="440" y1="235" x2="470" y2="235" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- intent identification -->
+    <rect x="472" y="170" width="180" height="130" rx="8" fill="#8E68AD"/>
+    <text x="562" y="228" font-size="24" font-weight="700" fill="#FFFFFF">Intent</text>
+    <text x="562" y="260" font-size="22" fill="#FFFFFF" opacity="0.92">identification</text>
+
+    <line x1="656" y1="235" x2="686" y2="235" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- entity router -->
+    <rect x="688" y="170" width="180" height="130" rx="8" fill="#F26838"/>
+    <text x="778" y="228" font-size="24" font-weight="700" fill="#FFFFFF">Entity</text>
+    <text x="778" y="260" font-size="22" fill="#FFFFFF" opacity="0.92">router</text>
+
+    <!-- bus out to the collectors -->
+    <path d="M868 235 h44" fill="none" stroke="#0B0B0B" stroke-width="2.5"/>
+    <path d="M912 118 V352" fill="none" stroke="#0B0B0B" stroke-width="2.5"/>
+    <path d="M912 118 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M912 235 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M912 352 h36" fill="none" stroke="#0B0B0B" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- entity collectors -->
+    <rect x="948" y="62" width="146" height="112" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="1021" y="110" font-size="21" fill="#0B0B0B">Entity</text>
+    <text x="1021" y="138" font-size="21" fill="#0B0B0B">collector 1</text>
+
+    <rect x="948" y="179" width="146" height="112" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="1021" y="227" font-size="21" fill="#0B0B0B">Entity</text>
+    <text x="1021" y="255" font-size="21" fill="#0B0B0B">collector 2</text>
+
+    <rect x="948" y="296" width="146" height="112" rx="8" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.75"/>
+    <text x="1021" y="344" font-size="21" fill="#0B0B0B">Entity</text>
+    <text x="1021" y="372" font-size="21" fill="#0B0B0B">collector 3</text>
+  </g>
+</svg>

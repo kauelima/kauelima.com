@@ -1,0 +1,168 @@
+---
+title: "AI Chatbot: Vamos Marcar"
+client: "Unicamp"
+year: 2020
+summary: "A conversational AI assistant that creates and manages small events inside the messaging apps people already use."
+disciplines: ['design', 'product']
+cover: ../../assets/covers/ai-chatbot-vamos-marcar.svg
+tags: ['Conversational UI', 'Chatbot', 'NLP', 'Research', 'Branding']
+order: 4
+headline: "Designing with AI in 2020, before the hype arrived"
+role: "Product Designer & Researcher"
+contributions:
+  - "Needfinding and a survey of amateur sports players to validate the problem before choosing a solution"
+  - "Scoping call: a general purpose event assistant rather than a sports specific app"
+  - "Conversation design: welcome, intent routing, entity collection and fallback flows"
+  - "An intent and entity model of 7 intents with training phrases and 5 entities, written like user stories"
+  - "NLP model built and refined in IBM Watson Assistant, wired into BLiP conversation flows"
+  - "A working prototype shipped on Telegram, Messenger and the web, then tested with real users"
+  - "Brand identity: icon, wordmark, colour palette and shareable event invite images"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import introImg from '../../assets/case-studies/ai-chatbot-vamos-marcar/intro.png';
+import parsingImg from '../../assets/case-studies/ai-chatbot-vamos-marcar/parsing.svg';
+import flowImg from '../../assets/case-studies/ai-chatbot-vamos-marcar/flow.svg';
+import builderImg from '../../assets/case-studies/ai-chatbot-vamos-marcar/builder.png';
+import logoImg from '../../assets/case-studies/ai-chatbot-vamos-marcar/vamos-marcar-logo.svg';
+
+**Vamos Marcar?** was my final project for a postgraduate certificate in
+Graphic Design at **Unicamp**: a chatbot that creates and manages small
+events through plain conversation, in WhatsApp, Telegram or Messenger, with
+no app to install.
+
+It was built in 2020, before generative AI turned every product into a chat
+window. The interesting part is that the constraints of the time made the
+design work harder. There was no model that could simply understand a
+sentence. Every intent, every entity and every recovery path had to be written
+by hand, which is exactly what made it a design project rather than a
+technology one.
+
+<Image
+  src={introImg}
+  alt="A Vamos Marcar? event invitation inside a WhatsApp thread: a branded card with the event name, date, time and place, followed by a map pin for the location"
+  class="mx-auto max-w-xs"
+/>
+
+## The problem
+
+The observation came from an amateur women's football team. Scheduling a
+single training session meant someone copying and pasting an attendance list
+into a WhatsApp group, chasing confirmations one by one, and re-posting the
+details for whoever had missed them. Players did not confirm, information got
+buried, and the organiser carried the whole thing manually.
+
+Apps exist for this. The research explained why they were not being used. A
+survey of 38 people practising amateur sport found:
+
+- Around 90% used WhatsApp as their main channel for organising and inviting.
+- 76.3% reported some difficulty planning events in their group.
+- Half of those who had tried a dedicated app did not want to use one again.
+
+The barrier was not the feature set. It was the install. Every participant has
+to download the app for any of it to work, so the weakest link in the group
+decides whether the tool gets adopted at all. Anything that lives outside the
+conversation the group already has starts at a disadvantage.
+
+## What I did
+
+I followed a Double Diamond process, starting from observation rather than
+from a chosen technology, so the answer had to earn its place.
+
+**The conversation was the platform.** Instead of asking people to move to a
+new place, the product moved to where they already were. A chatbot in a
+messaging thread has no install step, no onboarding and no empty state. The
+organiser talks to it, and the guests receive an invitation in the same app
+they were going to be messaged in anyway.
+
+**Broad over niche.** There were two paths: a sports specific product with
+extra features like member and cost management, or a general event assistant
+with a narrower feature set. I chose the general one. The specific version had
+more to offer but a smaller audience and a harder adoption problem, while the
+general one covered the observed case and every adjacent one: dinners,
+barbecues, birthdays, meetings.
+
+**Intents and entities as the design material.** With no large language model
+to lean on, the interface is defined by what the system is prepared to
+recognise. I wrote it the way you write user stories: an intent for each thing
+someone wants to do, plus the range of phrasings a real person might use to
+ask for it. Seven intents were implemented: create an event, find events,
+invite participants, find the best date and time, get event details, manage an
+event, and help. Five entities carried the content: name, date, time, place
+and participants.
+
+<Image
+  src={parsingImg}
+  alt="One sentence resolved into an intent and its entities: 'Create a meeting tomorrow morning with Kaue' becomes the Create Event intent plus event name, date, time and participants, leaving the location as the only empty field"
+  class="w-full"
+/>
+
+**The flow collects only what is missing.** A message goes to the NLP provider,
+which returns ranked intents with confidence scores. High confidence routes to
+an entity router built for that intent; low confidence falls to a recovery
+flow. The router reads what the sentence already contained and asks only for
+the rest. "Create event" triggers five questions. "Create a meeting tomorrow
+morning with Kaue" triggers one, because only the location is still unknown.
+That is the whole conversational argument in one detail: the product should
+never ask twice for something already said.
+
+<Image
+  src={flowImg}
+  alt="The conversation flow: welcome, then intent identification, then an entity router that fans out to one entity collector per field still missing"
+  class="w-full"
+/>
+
+**Personality where the brand could not live.** The touchpoints sit inside
+other companies' interfaces, so there was very little surface to design. The
+identity had to survive as a small icon: a speech bubble crossed with a robot,
+all corners rounded to keep it friendly rather than mechanical. Invitations
+and reminders go out as generated images carrying the event name, date, time
+and location, which gave the brand a presence in the thread and made events
+easy to forward.
+
+<Image
+  src={logoImg}
+  alt="The Vamos Marcar? logo: a speech bubble with robot eyes next to the wordmark, in italic Roboto Condensed, on a dark card"
+  class="mx-auto max-w-sm"
+/>
+
+### Building it
+
+The prototype ran on **BLiP** for the conversation flows and **IBM Watson
+Assistant** for natural language processing, connected so that intents and
+entities registered once were served to every channel. It shipped on Telegram,
+Facebook Messenger and a web widget. WhatsApp, the channel the research
+pointed at, was the one the free tier would not allow.
+
+<Image
+  src={builderImg}
+  alt="The BLiP builder canvas for Vamos Marcar?: a start and welcome block, an exceptions block feeding a default error, and one branch per intent, with the create-event branch expanded into its entity collectors"
+  class="w-full"
+/>
+
+It was deliberately a prototype rather than a product. With no database or
+backend behind it, entities that should have been dynamic were registered as
+fixed lists, and the three intents that depended on real state, notifying
+participants, asking guests to invite others, and setting reminders, were
+specified but left unbuilt. The point was to test whether the conversation
+worked, not to run real events.
+
+## Outcome
+
+Fourteen people used the prototype in the test window, exchanging around 880
+messages. Their phrasings went straight back into the model as new training
+examples, and by the end it was recognising real sentences with high
+confidence: "vamos marcar um almoço com Aline no sábado de manhã" resolved to
+the create-event intent with all four entities pulled out of it correctly.
+
+The tests also mapped the edges. Negation was the clearest failure. The model
+read intent well and rejection badly, so a user saying no to a suggestion
+could still be routed as if they had agreed. Alongside a real backend, that
+was the top item on the list of what would need to change next.
+
+What the project proved to me was the part that has aged well. Language as an
+interface is a design problem, not a model problem. Deciding what the system
+should understand, what it should ask for, and what it should do when it has
+guessed wrong is work that had to be done by hand in 2020 and still has to be
+done now. The tooling got dramatically better. The questions did not change.
