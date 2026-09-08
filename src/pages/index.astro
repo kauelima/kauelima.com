@@ -6,6 +6,7 @@ import { getProjects } from '@/lib/projects';
 
 const projects = await getProjects();
 const selected = projects.slice(0, 4);
+const hasMoreProjects = projects.length > selected.length;
 
 const doors = [
   {
@@ -67,11 +68,13 @@ const doors = [
         <span class="inline-block size-[0.42em] shrink-0 bg-yellow" aria-hidden="true"></span>
         Selected work
       </h2>
-      <a
-        href="/projects"
-        class="inline-flex min-h-11 items-center whitespace-nowrap bg-yellow px-5 text-sm font-bold transition-colors hover:bg-ink hover:text-paper">
-        All projects &rarr;
-      </a>
+      {hasMoreProjects && (
+        <a
+          href="/projects"
+          class="inline-flex min-h-11 items-center whitespace-nowrap bg-yellow px-5 text-sm font-bold transition-colors hover:bg-ink hover:text-paper">
+          All projects &rarr;
+        </a>
+      )}
     </div>
     <ProjectIndex projects={selected} />
   </section>
