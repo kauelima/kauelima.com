@@ -8,7 +8,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://kauelima.com',
 
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    // The workbench is an unlisted test page, so keep it out of the sitemap.
+    sitemap({ filter: (page) => !page.includes('/workbench') }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

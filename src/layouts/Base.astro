@@ -9,12 +9,15 @@ interface Props {
   description?: string;
   /** Set on the home page only, where the <title> is the bare brand. */
   bareTitle?: boolean;
+  /** Keep the page out of search results (unlisted pages like the workbench). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Kaue Lima is a Product Specialist with 14 years turning design expertise into product outcomes. Campinas, Brazil.',
   bareTitle = false,
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = bareTitle ? title : `${title} · Kaue Lima`;
@@ -30,6 +33,7 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
